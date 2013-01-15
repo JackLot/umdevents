@@ -1,4 +1,9 @@
 Umdevents::Application.routes.draw do
+
+  root :to => "events_controller#index"
+
+  get "events_controller/show"
+
   get "welcome/index"
 
   # The priority is based upon order of creation:
