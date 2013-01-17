@@ -1,7 +1,5 @@
 <h1>Listing All Events</h1>
 
-<%= link_to "Create a new event", new_event_path %>
-
 <table>
 
 	<% events = Event.all %>
@@ -17,4 +15,5 @@
 
 <% if events.size == 0 %>
 	<em>No events found</em>
+
 <% end %>

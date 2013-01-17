@@ -1,8 +1,13 @@
 Umdevents::Application.routes.draw do
 
+  get "users_controller/create"
+  get "events_controller/show"
+
   root :to => "events_controller#index"
 
-  get "events_controller/show"
+  match '/create_event', to: 'events_controller#new'
+  match '/signup', to: 'users_controller#create'
+ 
 
   get "welcome/index"
 
@@ -55,7 +60,7 @@ Umdevents::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  #root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
