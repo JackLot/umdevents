@@ -1,3 +1,14 @@
+<h3>Contents of ICal file</h3>
+
+<% @cal.first.events.each do |event| %>
+	<%= event.summary %> | <%= event.dtstart %> <br />
+<% end %>
+
+<hr />
+
+<%= @firstEvent.summary %>
+
+
 <h1>Listing All Events</h1>
 
 <table>
@@ -6,7 +17,7 @@
 
 	<% events.each do |event| %>
 		<tr>
-			<td><%= event.name %></td>
+			<td><%= event.name %> |</td>
 			<td><%= event.organization %></td>
 		</tr>
 	<% end %>
