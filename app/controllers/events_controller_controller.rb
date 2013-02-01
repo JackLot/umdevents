@@ -13,21 +13,28 @@ class EventsControllerController < ApplicationController
 		@file = Net::HTTP.get(uri).to_s
 		@cal = Icalendar.parse(@file)
 
-		@firstEvent = @cal.first.events.first
-
 		#This works but on every refresh it creates a new event instance. Also if any field
 		#is incorrect then the whole event doesnt insert
-		Event.create(
-			:name => @firstEvent.summary, 
-			:description => "Mens Basketball", 
-			:start_time => @firstEvent.dtstart, 
-			:end_time => @firstEvent.dtend, 
-			:organization => "UMD Athletics")
 
+		@cal.first.events.each do |event|
+
+			Event.create(
+				:name => event.summary,
+				:description => "Mens Basketball",
+				:start_time => event.dtstart,
+				:end_time => event.dtend,
+				:organization => "UMD Athletics",
+				:location => event.location
+			)
+
+		end
 
 	end
 
   	def show
+
+  		
+
   	end
 
 end

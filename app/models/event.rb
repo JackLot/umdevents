@@ -8,4 +8,6 @@ class Event < ActiveRecord::Base
 	validates :description, :presence => true
 	validates :organization, :presence => true
 
+	validates :name, :uniqueness => {:scope => :start_time}
+
 end

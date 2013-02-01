@@ -1,5 +1,7 @@
 Umdevents::Application.routes.draw do
 
+  resources :events_controller
+
   get "users_controller/create"
   get "events_controller/show"
 
@@ -7,9 +9,8 @@ Umdevents::Application.routes.draw do
 
   match '/create_event', to: 'events_controller#new'
   match '/signup', to: 'users_controller#create'
- 
 
-  get "welcome/index"
+  match '/events/:id' => 'events_controller#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
