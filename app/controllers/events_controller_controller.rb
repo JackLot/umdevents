@@ -39,7 +39,11 @@ class EventsControllerController < ApplicationController
   		Calendar.create(:name => "JCal", :user_id => @u)
 
   		@currentCal = Calendar.first
-  		@currentCal.events << @event
+
+  		if @currentCal.events.where(:name => @event.name, :start_time => @event.start_time).size == 0	
+  			@currentCal.events << @event
+  		end
+
   		@cEvents = @currentCal.events
 
   	end
