@@ -1,2 +1,25 @@
-<h1>EventsController#show</h1>
-<p>Find me in app/views/events_controller/show.html.erb</p>
+<h1>Show Event</h1>
+<hr /><br />
+<h2><%= @event.name %></h2>
+
+<table>
+	<tr><td>Start time: </td><td><%= @event.start_time %></td></tr>
+	<tr><td>End time: </td><td><%= @event.end_time %></td></tr>
+	<tr><td>Location: </td><td><%= @event.location %></td></tr>
+	<tr><td>Organization: </td><td><%= @event.start_time %></td></tr>
+	<tr><td>Description: </td><td><%= @event.description %></td></tr>
+</table>
+<br />
+
+
+<h3>Calendars</h3>
+
+<% @event.calendars.each do |cal| %>
+	<%= cal.user.username %>
+<% end %>
+
+<% if @event.calendars.size == 0 %>
+	<%= "This event doesn't belong to any calendars" %><br />
+	<%= "<strong>Current Cal<strong><br />" + @currentCal.inspect %><br />
+	<%= "<strong>Current User<strong><br />" + @cEvents.inspect %><br />
+<% end %>

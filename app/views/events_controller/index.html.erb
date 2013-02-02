@@ -1,4 +1,4 @@
-<h1>Listing All Events</h1>
+<h2>Listing All Events</h2>
 
 <table>
 
@@ -18,3 +18,57 @@
 <% if events.size == 0 %>
 	<em>No events found</em>
 <% end %>
+
+<hr />
+
+<h2 style="font-family: sans-serif">Users</h2>
+
+<table>
+
+	<% users = User.all %>
+
+	<% users.each do |user| %>
+		<tr>
+			<td><%= user.username %> |</td>
+			<td><%= user.email %> |</td>
+			<td><%= user.calendar.name %></td>
+		</tr>
+	<% end %>
+
+</table>
+
+<% if users.size == 0 %>
+	<em>No users found</em>
+<% end %>
+
+<hr />
+
+<h2>All Calendars</h2>
+
+<table>
+
+	<% calendars = Calendar.all %>
+
+	<% calendars.each do |c| %>
+		<tr>
+			<td valign="top"><strong><%= c.name %></strong></td>
+
+			<td>
+				<table>
+					<% c.events.each do |e| %>
+						<tr><td><%= e.name %></td></tr>
+					<% end %>
+
+				</table>
+			</td>
+
+		</tr>
+	<% end %>
+
+</table>
+
+<% if calendars.size == 0 %>
+	<em>No calendars found</em>
+<% end %>
+
+<hr />

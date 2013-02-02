@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201212250) do
+ActiveRecord::Schema.define(:version => 20130202202654) do
+
+  create_table "calendars", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "calendars_events", :id => false, :force => true do |t|
+    t.integer "calendar_id"
+    t.integer "event_id"
+  end
+
+  add_index "calendars_events", ["calendar_id", "event_id"], :name => "index_calendars_events_on_calendar_id_and_event_id"
+  add_index "calendars_events", ["event_id", "calendar_id"], :name => "index_calendars_events_on_event_id_and_calendar_id"
 
   create_table "events", :force => true do |t|
     t.string   "name"

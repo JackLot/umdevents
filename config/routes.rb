@@ -10,7 +10,7 @@ Umdevents::Application.routes.draw do
   match '/create_event', to: 'events_controller#new'
   match '/signup', to: 'users_controller#create'
 
-  match '/events/:id' => 'events_controller#show'
+  match '/events/:id', :to => 'events_controller#show', :as => :event
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
