@@ -48,16 +48,16 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 
 /* END STICKY FOOTER IMPLEMENTATION */
 
-#main{
+#main, #nav_holder{
 	width: 900px;
 	margin: 0 auto 0 auto;
 }
 
 #wrap{
-	border-top: 10px solid #454545;
 
 	background-image:url('backgroundGradient.png');
 	background-repeat: repeat-x;
+	background-position: 0px 55px;
 }
 
 body{
@@ -66,4 +66,159 @@ body{
 
 h1, h2, h3 {
 	font-family: sans-serif;
+}
+
+#top_nav{
+	height: 54px;
+	background-color: #3b3b3b;
+}
+
+#main{
+
+}
+
+#logo img{
+	height: 28px;
+}
+
+
+#logo_table{
+	float: left;
+	margin-top: 12px;
+	color: #cbcbcb;
+}
+
+#top_nav_sub{
+	float: right;
+	background-color: red;
+}
+
+#main_nav{
+	margin-top: 15px;
+	height: 50px;
+	margin-bottom: 20px;
+}
+
+#main_nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#main_nav ul li{
+	float: left;
+	margin-right: 10px;
+}
+
+#main_nav a{
+	display: block;
+	color: #9a9a9a;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 18px;
+	font-weight: regular;
+	padding: 5px 8px 5px 8px;
+}
+
+#main_nav a:hover > div{
+	background-position: 0 0;
+}
+
+#main_nav a.selected{
+	border: 1px solid #e5e5e5;
+	background-color: #f9f9f9;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#main_nav a.selected div{
+	background-position: 0 0;
+}
+
+.main_nav_item{
+	overflow: hidden;
+	height: 29px;
+	background-position: 0 -29px;
+	background-repeat: no-repeat;
+}
+
+#todays_events_nav_item{	
+	width: 170px;
+	background-image: url('todaysEvents_sprite.png');
+}
+
+#browse_tags_nav_item{	
+	width: 150px;
+	background-image: url('browseTags_sprite.png');
+	background-position: 0 -31px;
+}
+
+#main_nav_separator{
+	border-left: 1px solid #cfcfcf;
+	height: 28px;
+	margin-top: 8px;
+}
+
+h2.event_name{
+	font-size: 24px;
+	color: #454545;
+}
+
+#event_date_time ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline-table;
+}
+
+#event_date_time ul li{
+	float: left;
+	margin-right: 20px;
+	padding-top: 3px;
+}
+
+#event_date_time{
+	
+	font-family: sans-serif;
+	font-size: 14px;
+	margin-top: 5px;
+	padding-left: 5px;
+	padding-bottom: -2px;
+	color: #393939;
+	background-color: #fafafa;
+	border: 1px solid #b4b4b4;
+}
+
+#event_date_time img{
+	margin-right: 5px;
+	margin-top: 2px;
+	width: 16px;
+}
+
+#event_holder{
+	width: 75%;
+	float: left;
+}
+
+.event_description{
+	font-family: sans-serif;
+	font-size: 14px;
+	margin: 15px 0 10px 0;
+	line-height: 20px;
+	padding-right: 15px;
+}
+
+.event_location{
+	border-bottom: 1px solid #b4b4b4;
+	border-top: 2px solid #b4b4b4;
+	padding: 3px 0 3px 0;
+}
+
+.event_action_sidebar{
+	width: 20%;
+	height: 300px;
+	float: right;
+	border-left: 1px solid #c6c6c6;
+	margin-top: 33px;
 }

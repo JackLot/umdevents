@@ -10,11 +10,30 @@
 
 <div id="wrap">
 
+	<div id="top_nav"><div id="nav_holder">
+
+		<table id="logo_table"><tr>
+			<td><div id="logo"><%= image_tag("eventLogo_white.png") %></div></td>
+			<td><div style="margin: 0 5px 10px 5px; color: #939393;">@</div></td>
+			<td><div style="margin-bottom: 7px">University of Maryland College Park</div></td>
+		</tr></table>
+
+		<div id="top_nav_sub">
+			<%= link_to "Home", '/' %> | <%= link_to "About", '#' %> 
+		| <%= link_to "Create Event", '/create_event' %> | <%= link_to "Create an Account", '/signup' %>
+		</div>
+		
+	</div></div>
+
 	<div id="main">
 
-		<%= link_to "Home", '/' %> | <%= link_to "About", '#' %> 
-		| <%= link_to "Create Event", '/create_event' %> | <%= link_to "Create an Account", '/signup' %>
-		 <hr />
+		<div id="main_nav">
+			<ul>
+				<li><a href="#" class="selected2"><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
+				<li><div id="main_nav_separator"></div></li>
+				<li><a href="#"><div class="main_nav_item" id="browse_tags_nav_item"></div></a></li>
+			</ul>
+		</div>
 
 		<%= yield %>
 

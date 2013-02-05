@@ -1,23 +1,30 @@
-<h1>Show Event</h1>
-<hr /><br />
-<h2><%= @event.name %></h2>
+<div id="event_holder">
+<h2 class="event_name"><%= @event.name %></h2>
 
-<table>
-	<tr><td>Start time: </td><td><%= @event.start_time %></td></tr>
-	<tr><td>End time: </td><td><%= @event.end_time %></td></tr>
-	<tr><td>Location: </td><td><%= @event.location %></td></tr>
-	<tr><td>Organization: </td><td><%= @event.start_time %></td></tr>
-	<tr><td>Description: </td><td><%= @event.description %></td></tr>
+<div id="event_date_time">
+<ul>
+	<li><table><tr><td><%= image_tag("small_calendar_icon_black.png") %></td><td valign="middle"><%= @event.start_time.strftime('%A') %> <%= @event.start_time.strftime('%B') %> <%= @event.start_time.day %>, <%= @event.start_time.year %></td></tr></table></li>
+
+	<li><table><tr><td><%= image_tag("small_clock_icon_black.png") %></td><td><%= @event.start_time.strftime('%l') %>:<%= @event.start_time.strftime('%M') %><%= @event.start_time.strftime('%P') %> - <%= @event.end_time.strftime('%l')%>:<%= @event.end_time.strftime('%M')%><%= @event.end_time.strftime('%P') %></td></tr></table></li>
+</ul>
+</div>
+
+
+<div class="event_description">
+	<%= @event.description %>
+</div>
+
+<div class="event_location event_description">
+	<table><tr><td><strong>Location: &nbsp;</strong></td>
+		<td><%= @event.location %></td></tr></table>
+</div>
+
 </table>
 <br />
+</div>
+
+<div class="event_action_sidebar">
 
 
-<h3>Calendars</h3>
 
-<% @event.calendars.each do |cal| %>
-	<%= cal.user.username %>
-<% end %>
-
-<% if @event.calendars.size == 0 %>
-	<%= "This event doesn't belong to any calendars" %><br />
-<% end %>
+</div>
