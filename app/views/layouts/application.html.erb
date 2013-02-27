@@ -18,9 +18,10 @@
 			<td><div style="margin-bottom: 7px">University of Maryland College Park</div></td>
 		</tr></table>
 
-		<div id="top_nav_sub">
-			<%= link_to "Home", '/' %> | <%= link_to "About", '#' %> 
-		| <%= link_to "Create Event", '/create_event' %> | <%= link_to "Create an Account", '/signup' %>
+		<div class="header_action_holder"> 
+
+			<div class="login_signup_box"><%= link_to "Create an Account", '/signup' %> | <a href="#">Log In</a></div>
+
 		</div>
 		
 	</div></div>
@@ -29,13 +30,15 @@
 
 		<div id="main_nav">
 			<ul>
-				<li><a href="#" class="selected2"><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
+				<li><a class="selected" href="/" class="selected2"><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
 				<li><div id="main_nav_separator"></div></li>
 				<li><a href="#"><div class="main_nav_item" id="browse_tags_nav_item"></div></a></li>
 			</ul>
 		</div>
 
-		<%= yield %>
+		<div id="main_content">
+			<%= yield %>
+		</div>
 
 	</div>
 

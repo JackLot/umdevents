@@ -1,0 +1,22 @@
+<h2 class="page_header">Signup for an Account!</h2>
+<div class="page_subheader signup_subheader_text">
+Why signup for an account? With an account you'll be able to quickly save events to your personal calender then export those events. Choose what events show up in your newsfeed by tags (so if you're in the computer science department have undergrad events show up on your home page). Easily set up email reminders.
+</div>
+
+<%= render 'shared/error_messages' %>
+
+<%= form_for :user, :url => { :action => 'create'} do |f| %>
+
+	<%= f.label :username %>
+	<%= f.text_field :username %>
+
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+
+
+	<%= f.submit "Create my account" %>
+
+<% end %>
