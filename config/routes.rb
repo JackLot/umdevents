@@ -2,14 +2,17 @@ Umdevents::Application.routes.draw do
 
   resources :events_controller
   resources :users_controller
+  resources :sessions, :only => [:new, :create, :destroy]
 
   get "users_controller/new"
   get "events_controller/show"
 
-  root :to => "events_controller#index"
+  root :to => 'events_controller#index'
 
-  match '/create_event', to: 'events_controller#new'
-  match '/signup', to: 'users_controller#new'
+  match '/create_event', :to => 'events_controller#new'
+  match '/signup', :to => 'users_controller#new'
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
 
   match '/events/:id', :to => 'events_controller#show', :as => :event
 

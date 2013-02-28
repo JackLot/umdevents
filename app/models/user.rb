@@ -3,18 +3,27 @@ class User < ActiveRecord::Base
 	has_many :events
 	has_one :calendar, :foreign_key => 'user_id'
 
-	validates :username, :presence => true
-	validates :email, :presence => true
+	attr_accessible :email, :username, :password, :password_confirmation
+	has_secure_password
+
+	before_save { |user| user.email = user.email.downcase }
+	before_save :create_remember_token
+
+
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+\z/i
+
+	validates :username, :presence => true, :length => { maximum: 50 }
+
+	validates :email, :presence => true, :format => { :with => VALID_EMAIL_REGEX }, 
+		:uniqueness => { :case_sensitive => false}
+
 	validates :password, :presence => true
+	validates :password_confirmation, :presence => true
+
+
+	private
+		def create_remember_token
+			self.remember_token = SecureRandom.urlsafe_base64
+		end
 	
-	validates :email, :uniqueness => true
-
-
-	def create_user(username, email, password)
-		User.create(
-			:username => username, 
-			:email => email, 
-			:password => password
-		)
-	end
 end

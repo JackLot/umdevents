@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem 'ri_cal'
 gem 'icalendar'
+gem 'bcrypt-ruby'

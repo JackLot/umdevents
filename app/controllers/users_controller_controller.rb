@@ -6,19 +6,18 @@ class UsersControllerController < ApplicationController
 
   def create
 
-  	@user = User.new(params[:user])
+    @user = User.new(params[:user])
 
-  	if @user.save
-  		redirect_to root_path
-  	else
-  		redirect_to '/signup'
-      #render new
-  	end
-
+    if @user.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
+    
   end
 
-  def login
-
+  def show
+    @user = User.find(params[:id])
   end
 
 end
