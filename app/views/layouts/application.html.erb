@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="wrap">
 
 	<div id="top_nav"><div id="nav_holder">
@@ -15,10 +24,10 @@
 		<table id="logo_table"><tr>
 			<td><div id="logo"><%= image_tag("eventLogo_white.png") %></div></td>
 			<td><div style="margin: 0 5px 10px 5px; color: #939393;">@</div></td>
-			<td><div style="margin-bottom: 7px">University of Maryland College Park</div></td>
+			<td><div style="margin-bottom: 3px">University of Maryland College Park</div></td>
 		</tr></table>
 
-		<div class="header_action_holder"> 
+		<div class="header_action_holder">
 
 			<%= render 'shared/header_login_logout_bar' %>
 
@@ -30,13 +39,22 @@
 
 		<div id="main_nav">
 			<ul>
-				<li><a class="selected" href="/" class="selected2"><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
+				<li><a class="selected selected2" href="/" ><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
 				<li><div id="main_nav_separator"></div></li>
 				<li><a href="#"><div class="main_nav_item" id="browse_tags_nav_item"></div></a></li>
 			</ul>
+
+			<div class="search_form">
+				<form class="form-search">
+				  <input type="text" class="input-medium" placeholder="Search keywords, tags ...">
+				  <button type="submit" class="btn"><i class="icon-search"></i></button>
+				</form>
+			</div>
+
 		</div>
 
 		<div id="main_content">
+			<%= render 'shared/success_messages' %>
 			<%= yield %>
 		</div>
 

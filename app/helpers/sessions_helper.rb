@@ -11,7 +11,6 @@ module SessionsHelper
 	end
 
 	def current_user
-		#memoization
 		@current_user ||= User.find_by_remember_token(cookies[:remember_token])
 	end
 

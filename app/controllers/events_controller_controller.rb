@@ -1,8 +1,20 @@
 class EventsControllerController < ApplicationController
 
 	def new
-
+		@event = Event.new
 	end
+
+	def create
+
+	    @event = Event.new(params[:user])
+
+	    if @event.save
+	      redirect_to root_path, :flash => {:success => "Successfully created event!"}
+	    else
+	      render 'new', :flash => {:error => "Could not create event"}
+	    end
+	    
+	  end
 	
 	def index
 
@@ -28,6 +40,34 @@ class EventsControllerController < ApplicationController
 			)
 
 		end
+
+=begin
+		Event.create(
+				:name => "SEE Presents: Spring Comedy Show ft. John Oliver",
+				:description => "SEE is excited to announce our annual Spring Comedy Show, featuring John Oliver, a British comedian who has been a writer and correspondent for 'The Daily Show With Jon Stewart' since 2006. Since then he has done everything from interviewing UN Ambassadors to breaking his nose fighting for the Confederate army.",
+				:start_time => Time.now+12.hour,
+				:end_time => Time.now+13.hour,
+				:organization => "SEE",
+				:location => "Richie Collisieum"
+			)
+=end
+
+		#@feed = Feedzirra::Feed.fetch_and_parse("http://www.cs.umd.edu/webcal/online/rss/rss2.0.php?cal=department&cpath=&rssview=month")
+
+=begin
+		feed.entries.each do |event|
+
+			Event.create(
+				:name => event.title,
+				:description => event.description,
+				:start_time => event.ev:startdate,
+				:end_time => event.ev:enddate,
+				:organization => "Computer Science",
+				:location => event.ev:location
+			)
+
+		end
+=end
 
 	end
 

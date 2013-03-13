@@ -9,7 +9,7 @@ Umdevents::Application.routes.draw do
 
   root :to => 'events_controller#index'
 
-  match '/create_event', :to => 'events_controller#new'
+  match '/submit_event', :to => 'events_controller#new'
   match '/signup', :to => 'users_controller#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'

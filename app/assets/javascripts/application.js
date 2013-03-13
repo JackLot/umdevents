@@ -12,4 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
+//= require bootstrap
 //= require_tree .
+
+
+(function($) {
+
+	//Set alert timeouts and the close button
+
+  	$('.alert').alert()
+
+	setTimeout(function () {
+	  $('.alert.alert-success').alert('close')
+	}, 5000)
+
+})(jQuery);
+
+(function($) {
+
+	//Set up date and time pickers
+	$('.datepicker').datepicker();
+
+})(jQuery);

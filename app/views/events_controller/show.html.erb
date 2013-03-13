@@ -1,5 +1,5 @@
 <div id="event_holder">
-<h2 class="event_name"><%= @event.name %></h2>
+<div class="event_name_holder"><%= @event.name %></div>
 
 <div id="event_date_time">
 <ul>
@@ -20,11 +20,43 @@
 </div>
 
 </table>
-<br />
+
 </div>
 
 <div class="event_action_sidebar">
 
+	<div class="sidebar_subsection_holder">
+		<div class="sidebar_header">
+			<h4>Rate this event</h4>
+		</div>
 
+		<div class="btn-group">
+		  <button class="btn"><i class="icon-thumbs-up"></i> Cool!</button>
+		  <button class="btn"><i class="icon-thumbs-down"></i> Ehh...</button>
+		</div>
+	</div>
+
+	<div class="sidebar_subsection_holder">
+
+		<div class="sidebar_header">
+			<h4>Actions</h4>
+		</div>
+
+		<button class="btn" style="margin-bottom: 10px;" type="button"><i class="icon-plus"></i> Add to my calendar</button>
+		<button class="btn" type="button"><i class="icon-eye-open"></i> Remind me</button>
+
+	</div>
+
+	<div class="sidebar_subsection_holder">
+
+		<div class="sidebar_header">
+			<h4>Share this Event</h4>
+		</div>
+
+		<div class="fb-like" style="margin-bottom: 10px" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+		<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+	</div>
 
 </div>

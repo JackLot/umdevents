@@ -3,23 +3,33 @@
 Why signup for an account? With an account you'll be able to quickly save events to your personal calender then export those events. Choose what events show up in your newsfeed by tags (so if you're in the computer science department have undergrad events show up on your home page). Easily set up email reminders.
 </div>
 
-
-<%= form_for @user, :url => { :action => 'create'} do |f| %>
+<br /><br />
+<%= form_for @user, :html => {:class => 'form-horizontal'}, :url => { :action => 'create'} do |f| %>
 
 	<%= render 'shared/error_messages' %>
+	
+	<div class="control-group">
+		<%= f.label :username, :class => 'control-label' %>
+		<div class="controls"><%= f.text_field :username %></div>
+	</div>
 
-	<%= f.label :username %>
-	<%= f.text_field :username %>
+	<div class="control-group">
+		<%= f.label :email, :class => 'control-label' %>
+		<div class="controls"><%= f.text_field :email %></div>
+	</div>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<div class="control-group">
+		<%= f.label :password, :class => 'control-label' %>
+		<div class="controls"><%= f.password_field :password %></div>
+	</div>
 
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-
-	<%= f.label 'Password Confirmation' %>
-	<%= f.password_field :password_confirmation %>
-
-	<%= f.submit "Create my account" %>
+	<div class="control-group">
+		<%= f.label 'Password Confirmation', :class => 'control-label' %>
+		<div class="controls"><%= f.password_field :password_confirmation %></div>
+	</div>
+	<br />
+	<div class="control-group">
+		<div class="controls"><%= f.submit "Create my account", :class => "btn btn-success", :data => {"loading-text" => "Creating account..."} %></div>
+	</div>
 
 <% end %>

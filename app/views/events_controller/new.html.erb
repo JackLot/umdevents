@@ -1,1 +1,46 @@
-<h1>Create a New Event</h1>
+<h2 class="page_header">Submit An Event</h2>
+<div class="page_subheader signup_subheader_text">
+Heard about a cool event happening around campus that you can't find here on UMD Events? Great! Why not tell everybody about it?!
+</div>
+
+<br /><br />
+<%= form_for @event, :html => {:class => 'form-horizontal create_event_form'}, :url => { :action => 'create'} do |f| %>
+
+	<div class="control-group">
+		<%= f.label :name, :class => 'control-label' %>
+		<div class="controls"><%= f.text_field :name, :class => "event_name_TF" %></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :start_time, :class => 'control-label' %>
+		<div class="controls"><%= f.text_field :start_time, :class => "date_select_TF datepicker" %> - 
+			<%= f.text_field :start_time, :class => "time_select_TF" %></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :end_time, :class => 'control-label' %>
+		<div class="controls"><%= f.text_field :end_time, :class => "date_select_TF datepicker" %> - 
+			<%= f.text_field :end_time, :class => "time_select_TF" %></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :description, :class => 'control-label' %>
+		<div class="controls"><%= f.text_area :description, :rows => "10", :class => "event_description_TA" %></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :location, :class => 'control-label' %>
+		<div class="controls"><%= f.text_area :location, :rows => "3", :class => "event_location_TA" %></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :organization, :class => 'control-label' %>
+		<div class="controls"><%= f.text_field :organization %></div>
+	</div>
+	
+	<br />
+	<div class="control-group">
+		<div class="controls"><%= f.submit "Submit Event", :class => "btn btn-success" %></div>
+	</div>
+
+<% end %>
