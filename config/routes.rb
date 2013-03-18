@@ -12,7 +12,7 @@ Umdevents::Application.routes.draw do
   match '/submit_event', :to => 'events_controller#new'
   match '/signup', :to => 'users_controller#new'
   match '/signin', :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
+  match '/signout', :to => 'sessions#destroy', via: :delete
 
   match '/events/:id', :to => 'events_controller#show', :as => :event
 

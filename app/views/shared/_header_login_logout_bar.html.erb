@@ -1,8 +1,8 @@
-<% if 1 == 0 %>
+<% if !signed_in? %>
 
 	<div class="login_signup_box">
 		
-		<a href="/signup"><button class="btn btn-primary btn-small">Create an account</button></a> <span class="separator">|</span> <%= link_to "Login", '/signin', :class => "offset_on_active" %>
+		<a href="/signup"><button class="btn btn-success btn-small">Create an account</button></a> <span class="separator">|</span> <%= link_to "Login", signin_path, :class => "offset_on_active" %>
 	</div>
 
 <% else %>
@@ -18,14 +18,14 @@
 			<li><ul class="nav pull-right my-account-dropdown">
 			  <li class="dropdown">
 			    <a class="dropdown-toggle top_level offset_on_active profile_dropdown" data-toggle="dropdown" href="#">
-			        <i class="icon-user icon-white"></i> &nbsp; Jack
+			        <i class="icon-user icon-white"></i> &nbsp; <%= current_user[:username] %>
 			        &nbsp; <span class="caret white-caret"></span>
 			      </a>
 			    <ul class="dropdown-menu right">
-			      <li><a href="#">Account Settings</a></li>
+			      <li><%= link_to "Account Settings", "#" %></li>
 			      <li><a href="#">Help</a></li>
 			      <li><div class="divider"></div></li>
-			      <li><a href="#" class="logout_btn">Logout</a></li>
+			      <li><%= link_to "Logout", signout_path, method: "delete" %></li>
 			    </ul>
 			  </li>
 			</ul></li>
