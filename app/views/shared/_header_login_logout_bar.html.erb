@@ -1,7 +1,8 @@
 <% if 1 == 0 %>
 
 	<div class="login_signup_box">
-		<%= link_to "Create an Account", '/signup' %> <span class="separator">|</span> <%= link_to "Login", '/signin' %>
+		
+		<a href="/signup"><button class="btn btn-primary btn-small">Create an account</button></a> <span class="separator">|</span> <%= link_to "Login", '/signin', :class => "offset_on_active" %>
 	</div>
 
 <% else %>
@@ -12,7 +13,7 @@
 
 			<li><a href="/submit_event"><button class="btn btn-info btn-small">Submit An Event</button></a></li>
 
-			<li><a href="#" class="top_level offset_on_active"><i class="icon-calendar icon-white"></i> &nbsp; My Calendar &nbsp;</a> <span class="separator">|</span> </li>
+			<li> <span class="separator"> | </span> <a href="#" class="top_level offset_on_active"><i class="icon-calendar icon-white"></i> &nbsp; My Calendar &nbsp;</a> <span class="separator">|</span> </li>
 
 			<li><ul class="nav pull-right my-account-dropdown">
 			  <li class="dropdown">

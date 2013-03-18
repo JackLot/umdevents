@@ -113,17 +113,17 @@ h1, h2, h3 {
 	padding: 5px;
 }
 
-.header_action_holder .login_signup_box a:hover{
+.header_action_holder .login_signup_box a.offset_on_active:hover{
 	color: white;
 }
 
-.header_action_holder .login_signup_box a:active{
+.header_action_holder .login_signup_box a.offset_on_active:active{
 	position: relative;
 	top: 1px;
 }
 
 .header_action_holder .login_signup_box{
-	margin-top: 14px;
+	margin-top: 10px;
 }
 
 #main_nav{
@@ -431,9 +431,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 /*Account Settings and logout box ----------------------------------------------------*/
 
-.header_action_holder .account_logout_box{
-	margin-top: -2px;
-}
 
 .header_action_holder .account_logout_box ul > li > a.top_level{
 	color: #dadada;
@@ -457,7 +454,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 
 .header_action_holder .account_logout_box{
-	margin-top: 14px;
+	margin-top: 12px;
+}
+
+.header_action_holder .account_logout_box button{
+	margin-top: 2px;
 }
 
 .header_action_holder .account_logout_box > ul > li{
