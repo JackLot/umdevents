@@ -280,7 +280,7 @@ border: 1px solid #cecece;
 	border-top: 1px solid #DBDBDB;
 }
 
-/*Sidebar styles */
+/*Sidebar styles ---------------------------------------------*/
 
 .event_action_sidebar{
 	width: 22%;
@@ -326,9 +326,20 @@ border: 1px solid #cecece;
 
 }
 
+.events-holder.my-calendar-events{
+	width: 99%;
+}
+
 .events-holder table{
 	width: 100%;
 	border-top: 1px solid #d1d1d1;
+}
+
+.events-holder .event-wday{
+	width: 75px;
+	padding: 8px;
+	padding-left: 10px;
+	font-size: 16px;
 }
 
 .events-holder .event-time{
@@ -336,6 +347,11 @@ border: 1px solid #cecece;
 	width: 52px;
 	padding: 5px;
 	color: #424242;
+}
+
+.my-calendar-events.events-holder .event-time{
+	width: 120px;
+	padding: 0px;
 }
 
 .events-holder .event-name{
@@ -534,4 +550,8 @@ a.logout_btn{
 
 .time_select_TF{
 	width: 80px;
+}
+
+.remove_from_calendar{
+	float: right;
 }

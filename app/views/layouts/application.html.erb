@@ -22,7 +22,7 @@
 	<div id="top_nav"><div id="nav_holder">
 
 		<table id="logo_table"><tr>
-			<td><div id="logo"><%= image_tag("eventLogo_white.png") %></div></td>
+			<td><div id="logo"><a href="/"><%= image_tag("eventLogo_white.png") %></a></div></td>
 			<td><div style="margin: 0 5px 10px 5px; color: #939393;">@</div></td>
 			<td><div style="margin-bottom: 3px">University of Maryland College Park</div></td>
 		</tr></table>
@@ -40,8 +40,8 @@
 		<div id="main_nav">
 			<ul>
 				<li><a class="selected selected2" href="/" ><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
-				<li><div id="main_nav_separator"></div></li>
-				<li><a href="#"><div class="main_nav_item" id="browse_tags_nav_item"></div></a></li>
+				<li><% if 1 == 0 %><div id="main_nav_separator"></div><% end %></li>
+				<li><% if 1 == 0 %><a href="#"><div class="main_nav_item" id="browse_tags_nav_item"></div></a><% end %></li>
 			</ul>
 
 			<div class="search_form">

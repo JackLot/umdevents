@@ -21,11 +21,11 @@
 
 	//Set alert timeouts and the close button
 
-  	$('.alert').alert()
+  	$('.alert').alert();
 
 	setTimeout(function () {
-	  $('.alert.alert-success').alert('close')
-	}, 5000)
+	  $('.alert.alert-success').alert('close');
+	}, 5000);
 
 })(jQuery);
 

@@ -1,0 +1,49 @@
+<h2 class="page_header">My Calendar</h2>
+<div class="page_subheader signup_subheader_text">View events you've saved to your personal calendar.</div>
+<br />
+
+
+<% if @cal.events.size == 0 %>
+	<em>No events found</em>
+<% else %>
+
+<div class="events-holder todays-events my-calendar-events">
+<div class="events-holder-title">This Week</div>
+<table>
+
+	<% events = @cal.events.limit(6) %>
+
+	<% events.each do |event| %>
+		<tr class="single-event-holder">
+			<table><tr>
+				<td class="event-wday" valign="top">
+					<div><%= event.start_time.strftime('%A') %></div>
+					<div valign="top" class="event-time">
+						<%= event.start_time.strftime('%l') %>:<%= event.start_time.strftime('%M') %><%= event.start_time.strftime('%P') %> -
+						<%= event.end_time.strftime('%l') %>:<%= event.end_time.strftime('%M') %><%= event.end_time.strftime('%P') %>
+					</div>
+				</td>
+			<td class="event-name">
+
+				<div class="remove_from_calendar">
+					<a href="#" class="btn btn-small" rel="tooltip" data-placement="top" data-title="Remove from Calendar"><i class="icon-minus"></i></a>
+				</div>
+				<%= link_to event.name, event %><br /><span class="event-organization"><%= event.organization %></span>
+			</td>
+
+		</tr></table>
+		</tr>
+	<% end %>
+
+</table>
+</div>
+</div>
+
+	<% if 1==0 %><table>
+		<% @cal.events.each do |e| %>
+			<tr><td><%= e.name %></td></tr>
+		<% end %>
+	</table>
+	<% end %>
+
+<% end %>

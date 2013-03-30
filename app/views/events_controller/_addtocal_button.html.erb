@@ -1,0 +1,5 @@
+<% if !signed_in? %>
+	<a class="btn disabled" rel="tooltip" data-placement="left" data-title="Please login to enable this feature!" style="margin-bottom: 10px;"><i class="icon-plus"></i> Add to my calendar</a>
+<% else %>
+	<a class="btn" style="margin-bottom: 10px;" type="button"><i class="icon-plus"></i> Add to my calendar</a>
+<% end %>

@@ -73,7 +73,9 @@ class EventsControllerController < ApplicationController
 
   	def show
 
-  		@event = Event.find(params[:id])
+		@event = Event.find(params[:id])
+=begin
+  		
   		User.create(:username => "JackLot", :email => "echoninja110@gmail.com", :password => "Devteam1")
   		@u = User.where(:email => "echoninja110@gmail.com")
   		Calendar.create(:name => "JCal", :user_id => @u)
@@ -85,6 +87,23 @@ class EventsControllerController < ApplicationController
   		end
 
   		@cEvents = @currentCal.events
+
+=end
+
+		currentCal = current_user.calendar
+		#Calendar.where(:user_id => current_user).first
+
+		if currentCal.respond_to?('events')
+
+			if currentCal.events.where(:name => @event.name, :start_time => @event.start_time).size == 0	
+	  			#currentCal.events << @event
+	  		end
+
+		else
+
+			#currentCal.events << @event
+
+  		end
 
   	end
 

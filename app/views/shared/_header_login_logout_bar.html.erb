@@ -2,7 +2,7 @@
 
 	<div class="login_signup_box">
 		
-		<a href="/signup"><button class="btn btn-success btn-small">Create an account</button></a> <span class="separator">|</span> <%= link_to "Login", signin_path, :class => "offset_on_active" %>
+		<a href="/signup"><button class="btn btn-info btn-small">Create an account</button></a> <span class="separator">|</span> <%= link_to "Login", signin_path, :class => "offset_on_active" %>
 	</div>
 
 <% else %>
@@ -13,7 +13,7 @@
 
 			<li><a href="/submit_event"><button class="btn btn-info btn-small">Submit An Event</button></a></li>
 
-			<li> <span class="separator"> | </span> <a href="#" class="top_level offset_on_active"><i class="icon-calendar icon-white"></i> &nbsp; My Calendar &nbsp;</a> <span class="separator">|</span> </li>
+			<li> <span class="separator"> | </span> <a href="/mycalendar" class="top_level offset_on_active"><i class="icon-calendar icon-white"></i> &nbsp; My Calendar &nbsp;</a> <span class="separator">|</span> </li>
 
 			<li><ul class="nav pull-right my-account-dropdown">
 			  <li class="dropdown">
@@ -22,8 +22,8 @@
 			        &nbsp; <span class="caret white-caret"></span>
 			      </a>
 			    <ul class="dropdown-menu right">
+			      <li><a href="#">My Profile</a></li>
 			      <li><%= link_to "Account Settings", "#" %></li>
-			      <li><a href="#">Help</a></li>
 			      <li><div class="divider"></div></li>
 			      <li><%= link_to "Logout", signout_path, method: "delete" %></li>
 			    </ul>

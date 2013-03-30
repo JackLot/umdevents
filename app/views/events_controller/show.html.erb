@@ -42,8 +42,15 @@
 			<h4>Actions</h4>
 		</div>
 
-		<button class="btn" style="margin-bottom: 10px;" type="button"><i class="icon-plus"></i> Add to my calendar</button>
-		<button class="btn" type="button"><i class="icon-eye-open"></i> Remind me</button>
+		<% if !signed_in? %>
+			<a class="btn disabled" rel="tooltip" data-placement="left" data-title="Please login to enable this feature!" style="margin-bottom: 10px;"><i class="icon-plus"></i> Add to my calendar</a>
+		<% else %>
+			<%= render 'addtocal' %>
+			<% if 1 == 0 %><a class="btn" style="margin-bottom: 10px;" type="button"><i class="icon-plus"></i> Add to my calendar</a><% end %>
+		<% end %>
+		
+		<button class="btn" type="button" style="margin-bottom: 10px"><i class="icon-eye-open"></i> Remind me</button>
+		<a class="btn" type="button" rel="tooltip" data-placement="left" data-title="Export to ICal format"><i class="icon-arrow-down"></i> Export</a>
 
 	</div>
 
