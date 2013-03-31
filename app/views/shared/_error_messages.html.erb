@@ -1,4 +1,5 @@
-<% if @user.errors.any? %>
+<% if @user != nil && @user.errors.any? %>
+
 	<div id="error_explanation" class="alert alert-error">
 
 		This form contains <%= pluralize(@user.errors.count, "error") %> <a class="close" data-dismiss="alert">&#215;</a>
@@ -10,4 +11,19 @@
 		</ul>
 		
 	</div>
+
+<% elsif @event != nil && @event.errors.any? %>
+
+	<div id="error_explanation" class="alert alert-error">
+
+			This form contains <%= pluralize(@event.errors.count, "error") %> <a class="close" data-dismiss="alert">&#215;</a>
+
+			<ul>
+				<% @event.errors.full_messages.each do |msg| %>
+					<li><%= msg %> </li>
+				<% end %>
+			</ul>
+			
+	</div>
+
 <% end %>

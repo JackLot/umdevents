@@ -4,10 +4,13 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :calendars
 
 	validates :name, :presence => true
+=begin
 	validates :start_time, :presence => true
 	validates :end_time, :presence => true
+=end
 	validates :description, :presence => true
 	validates :organization, :presence => true
+	validates :location, :presence => true
 
 	validates :name, :uniqueness => true #{:scope => :start_time}
 

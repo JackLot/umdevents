@@ -11,7 +11,7 @@
 <div class="events-holder-title">This Week</div>
 <table>
 
-	<% events = @cal.events.limit(6) %>
+	<% events = @cal.events.all(:order => 'start_time DESC') %>
 
 	<% events.each do |event| %>
 		<tr class="single-event-holder">
@@ -26,9 +26,13 @@
 			<td class="event-name">
 
 				<div class="remove_from_calendar">
-					<a href="#" class="btn btn-small" rel="tooltip" data-placement="top" data-title="Remove from Calendar"><i class="icon-minus"></i></a>
+					
+					<a href="#" class="btn btn-mini" rel="tooltip" data-placement="top" data-title="Create a reminder"><i class="icon-eye-open"></i></a>
+					
+					<a href="#" class="btn btn-mini" rel="tooltip" data-placement="top" data-title="Remove from Calendar"><i class="icon-minus"></i></a>
+
 				</div>
-				<%= link_to event.name, event %><br /><span class="event-organization"><%= event.organization %></span>
+				<%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
 			</td>
 
 		</tr></table>

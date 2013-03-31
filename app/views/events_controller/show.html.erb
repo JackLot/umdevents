@@ -3,9 +3,9 @@
 
 <div id="event_date_time">
 <ul>
-	<li><table><tr><td><%= image_tag("small_calendar_icon_black.png") %></td><td valign="middle"><%= @event.start_time.strftime('%A') %> <%= @event.start_time.strftime('%B') %> <%= @event.start_time.day %>, <%= @event.start_time.year %></td></tr></table></li>
+	<li><table><tr><td><%= image_tag("small_calendar_icon_black.png") %></td><td valign="middle" style="padding-top: 3px"><%= @event.start_time.strftime('%A') %> <%= @event.start_time.strftime('%B') %> <%= @event.start_time.day %>, <%= @event.start_time.year %></td></tr></table></li>
 
-	<li><table><tr><td><%= image_tag("small_clock_icon_black.png") %></td><td><%= @event.start_time.strftime('%l') %>:<%= @event.start_time.strftime('%M') %><%= @event.start_time.strftime('%P') %> - <%= @event.end_time.strftime('%l')%>:<%= @event.end_time.strftime('%M')%><%= @event.end_time.strftime('%P') %></td></tr></table></li>
+	<li><table><tr><td><%= image_tag("small_clock_icon_black.png") %></td><td valign="middle" style="padding-top: 3px"><%= @event.start_time.strftime('%l') %>:<%= @event.start_time.strftime('%M') %><%= @event.start_time.strftime('%P') %> - <%= @event.end_time.strftime('%l')%>:<%= @event.end_time.strftime('%M')%><%= @event.end_time.strftime('%P') %></td></tr></table></li>
 </ul>
 </div>
 

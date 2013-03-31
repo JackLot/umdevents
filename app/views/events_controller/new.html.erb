@@ -6,6 +6,8 @@ Heard about a cool event happening around campus that you can't find here on UMD
 <br /><br />
 <%= form_for @event, :html => {:class => 'form-horizontal create_event_form'}, :url => { :action => 'create'} do |f| %>
 
+	<%= render 'shared/error_messages' %>
+
 	<div class="control-group">
 		<%= f.label :name, :class => 'control-label' %>
 		<div class="controls"><%= f.text_field :name, :class => "event_name_TF" %></div>
@@ -13,14 +15,18 @@ Heard about a cool event happening around campus that you can't find here on UMD
 
 	<div class="control-group">
 		<%= f.label :start_time, :class => 'control-label' %>
-		<div class="controls"><%= f.text_field :start_time, :class => "date_select_TF datepicker" %> - 
-			<%= f.text_field :start_time, :class => "time_select_TF" %></div>
+		<div class="controls">
+			<%= f.time_select :start_time, :combined => true, :default => Time.now.change(:hour => Time.now.hour, :min => 0), :minute_interval => 30, :time_separator => "", :start_hour => 0, :end_hour => 24 %> &nbsp;&nbsp;-&nbsp;&nbsp; 
+			<%= select_month(Date.today, :field_name => "start_date_month") %> <%= select_day(Date.today, :field_name => "start_date_day") %> <%= select_year(Date.today, :field_name => "start_date_year") %>
+		</div>
 	</div>
 
 	<div class="control-group">
 		<%= f.label :end_time, :class => 'control-label' %>
-		<div class="controls"><%= f.text_field :end_time, :class => "date_select_TF datepicker" %> - 
-			<%= f.text_field :end_time, :class => "time_select_TF" %></div>
+		<div class="controls">
+			<%= f.time_select :end_time, :combined => true, :default => Time.now.change(:hour => (Time.now + 1.hour).hour, :min => 0), :minute_interval => 30, :time_separator => "", :start_hour => 0, :end_hour => 24 %> &nbsp;&nbsp;-&nbsp;&nbsp;
+			<%= select_month(Date.today, :field_name => "end_date_month") %> <%= select_day(Date.today, :field_name => "end_date_day") %> <%= select_year(Date.today, :field_name => "end_date_year") %>
+		</div>
 	</div>
 
 	<div class="control-group">

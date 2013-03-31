@@ -5,8 +5,38 @@ class EventsControllerController < ApplicationController
 	end
 
 	def create
+		#raise
+	    #@event = Event.new(params[:user])
 
-	    @event = Event.new(params[:user])
+	    params[:event].parse_time_select! :start_time
+	    params[:event].parse_time_select! :end_time
+
+	    s_time = Time.local(
+	    	params[:date][:start_date_year],
+	    	params[:date][:start_date_month],
+	    	params[:date][:start_date_day],
+	    	params[:event][:start_time].hour,
+	    	params[:event][:start_time].min,
+	    	params[:event][:start_time].sec
+	    )
+
+	    e_time = Time.local(
+	    	params[:date][:end_date_year],
+	    	params[:date][:end_date_month],
+	    	params[:date][:end_date_day],
+	    	params[:event][:end_time].hour,
+	    	params[:event][:end_time].min,
+	    	params[:event][:end_time].sec
+	    )
+
+	    @event = Event.new(
+	    	:name => params[:event][:name],
+			:description => params[:event][:description],
+			:start_time => s_time,
+			:end_time => e_time,
+			:organization => params[:event][:organization],
+			:location => params[:event][:location]
+	    )
 
 	    if @event.save
 	      redirect_to root_path, :flash => {:success => "Successfully created event!"}

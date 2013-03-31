@@ -11,7 +11,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.ui.datepicker
+ *= require jquery.timepicker
  *= require_tree .
 */
 
@@ -261,7 +261,7 @@ border: 1px solid #cecece;
 
 #event_date_time img{
 	margin-right: 5px;
-	margin-top: 2px;
+	margin-top: 1px;
 	width: 16px;
 }
 
@@ -344,8 +344,9 @@ border: 1px solid #cecece;
 
 .events-holder .event-time{
 	font-size: 13px;
-	width: 52px;
+	width: 55px;
 	padding: 5px;
+	padding-left: 10px;
 	color: #424242;
 }
 
@@ -537,7 +538,7 @@ a.logout_btn{
 }
 
 .event_name_TF{
-	width: 400px;
+	width: 500px;
 }
 
 .event_location_TA{
@@ -554,4 +555,23 @@ a.logout_btn{
 
 .remove_from_calendar{
 	float: right;
+}
+
+/*CREATE EVENT ---------------------------------------------*/
+.start_time_select{
+	width: 100px;
+}
+
+.create_event_form #date_start_date_month, .create_event_form #date_end_date_month{
+	width: 100px;
+}
+.create_event_form #date_start_date_day, .create_event_form #date_end_date_day{
+	width: 70px;
+}
+.create_event_form #date_start_date_year, .create_event_form #date_end_date_year{
+	width: 90px;
+}
+
+.create_event_form #event_start_time_5i, .create_event_form #event_end_time_5i{
+	width: 150px;
 }

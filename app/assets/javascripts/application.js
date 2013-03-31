@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
+//= require jquery.timepicker
 //= require bootstrap
 //= require_tree .
 
@@ -31,7 +31,6 @@
 
 (function($) {
 
-	//Set up date and time pickers
-	$('.datepicker').datepicker();
+
 
 })(jQuery);

@@ -14,6 +14,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'jquery-ui-rails'
+  gem 'jquery-timepicker-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
@@ -44,4 +45,5 @@ gem 'jquery-rails'
 gem 'ri_cal'
 gem 'icalendar'
 gem 'bcrypt-ruby'
+gem "combined_time_select", "~> 1.0.0"
 #gem 'feedzirra'

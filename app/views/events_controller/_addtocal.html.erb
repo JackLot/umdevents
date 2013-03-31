@@ -1,4 +1,4 @@
-<% if current_user.calendar.events[@event.id] != nil %>
+<% if !current_user.calendar.events.find_by_id(@event.id).nil? %>
 
 	<a class="btn disabled" rel="tooltip" data-placement="left" data-title="Event already added to your calendar" style="margin-bottom: 10px;"><i class="icon-plus"></i> Added to my calendar</a>
 
@@ -8,5 +8,5 @@
 		<div><%= f.hidden_field :event_id, :value => @event.id %></div>
 		<%= f.submit "Add to my Calendar", class: "btn" %>
 
-	<% end %>
+	 <% end %>
 <% end %>

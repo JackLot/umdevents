@@ -2,12 +2,12 @@
 <div class="events-holder-title">Today <div class="event-holder-date"><%= Time.now.strftime("%m/%d/%Y") %></div></div>
 <table>
 
-	<% events = Event.limit(6) %>
+	<% events = Event.all(:limit => 6, :order => 'start_time DESC') %>
 
 	<% events.each do |event| %>
 		<tr class="single-event-holder">
 			<table><tr><td valign="top" class="event-time"><%= event.start_time.strftime('%l') %>:<%= event.start_time.strftime('%M') %><%= event.start_time.strftime('%P') %></td> 
-			<td class="event-name"><%= link_to event.name, event %><br /><span class="event-organization"><%= event.organization %></span></td></tr></table>
+			<td class="event-name"><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span></td></tr></table>
 		</tr>
 	<% end %>
 
