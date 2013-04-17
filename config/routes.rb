@@ -18,6 +18,7 @@ Umdevents::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy', via: :delete
   match '/mycalendar', :to => 'calendar#show'
   match '/events_controller/search', :to => 'events_controller#search'
+  match '/user/profile', :to => 'users_controller#show'
 
   match '/events/:id', :to => 'events_controller#show', :as => :event
   match '/calendar/:id', :to => 'calendar#addtocal'

@@ -39,7 +39,13 @@
 
 		<div id="main_nav">
 			<ul>
-				<li><a class="selected selected2" href="/" ><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
+
+				<% if @homepage != nil %>
+					<li><a class="selected" href="/" ><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
+				<% else %>
+					<li><a class="selected notselected" href="/" ><div class="main_nav_item" id="todays_events_nav_item"></div></a></li>
+				<% end %>
+
 				<li><% if 1 == 0 %><div id="main_nav_separator"></div><% end %></li>
 				<li><% if 1 == 0 %><a href="#"><div class="main_nav_item" id="browse_tags_nav_item"></div></a><% end %></li>
 			</ul>
@@ -74,6 +80,11 @@
 </div>
 
 <div id="footer">
+
+	<div class="footer-info">
+		Website created by Jack Lotkowski ('15) as a Digital Cultures and Creativity Honors College Capstone Project<br />
+		Please submit any technical issues to: <a href="mailto:info@jlmad.com">info@jlmad.com</a>
+	</div>
 
 </div>
 

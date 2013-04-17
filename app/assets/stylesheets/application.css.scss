@@ -31,11 +31,11 @@ html, body {height: 100%;}
 #wrap {min-height: 100%;}
 
 #main {overflow:auto;
-	padding-bottom: 180px;}  /* must be same height as the footer */
+	padding-bottom: 100px;}  /* must be same height as the footer */
 
 #footer {position: relative;
-	margin-top: -181px; /* negative value of footer height */
-	height: 180px;
+	margin-top: -101px; /* negative value of footer height */
+	height: 100px;
 	clear:both;} 
 
 /*Opera Fix*/
@@ -160,18 +160,32 @@ h1, h2, h3 {
 #main_nav a.selected{
 	border: 1px solid #e5e5e5;
 	background-color: #f9f9f9;
--webkit-border-bottom-right-radius: 8px;
--webkit-border-bottom-left-radius: 8px;
--moz-border-radius-bottomright: 8px;
--moz-border-radius-bottomleft: 8px;
-border-bottom-right-radius: 8px;
-border-bottom-left-radius: 8px;
 
-border: 1px solid #cecece;
+	-webkit-border-bottom-right-radius: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	-moz-border-radius-bottomright: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+
+	border: 1px solid #cecece;
 }
 
 #main_nav a.selected div{
 	background-position: 0 0;
+}
+
+#main_nav a.notselected div{
+	background-position: 0 0px;
+}
+
+#main_nav a.notselected{
+	background-color: #EDEDED;
+}
+
+#main_nav a.notselected:hover{
+	padding-top: 15px;
+	background-color: #f9f9f9;
 }
 
 .main_nav_item{
@@ -181,12 +195,12 @@ border: 1px solid #cecece;
 	background-repeat: no-repeat;
 }
 
-#todays_events_nav_item{	
+#todays_events_nav_item{
 	width: 170px;
 	background-image: url('todaysEvents_sprite.png');
 }
 
-#browse_tags_nav_item{	
+#browse_tags_nav_item{
 	width: 150px;
 	background-image: url('browseTags_sprite.png');
 	background-position: 0 -31px;
@@ -441,8 +455,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	margin-bottom: 0;
 }
 
+.search-result{
+	border-bottom: 1px solid #cccccc;
+	width: 750px;
+	margin-left: 10px;
+	padding: 10px;
+}
+
+.search-result a{
+	font-size: 18px;
+}
+
+.search-result .event-brief{
+	font-size: 11px;
+	color: #999999;
+	float: right;
+}
+
 .search_form .search_btn{
-	width: 80px;
+	width: 70px;
 
 }
 
@@ -634,4 +665,22 @@ a.logout_btn{
 .calendar-view .remove_from_calendar{
 	margin-top: 8px;
 	margin-right: 5px;
+}
+
+.export_calendar{
+	float: right;
+	position: relative;
+	top: -10px;
+}
+
+#footer{
+	border-top: 1px solid #cccccc;
+	background-color: #EDEDED;
+}
+
+#footer .footer-info{
+	margin-top: 8px;
+	font-size: 12px;
+	text-align: center;
+	color: #828282;
 }

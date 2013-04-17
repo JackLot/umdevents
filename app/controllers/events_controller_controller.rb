@@ -52,6 +52,8 @@ class EventsControllerController < ApplicationController
 	
 	def index
 
+		@homepage = true
+
 		# Read the mens basketball schedule
 		require 'open-uri'
 		require 'net/http'
@@ -123,21 +125,6 @@ class EventsControllerController < ApplicationController
   		@cEvents = @currentCal.events
 
 =end
-
-		currentCal = current_user.calendar
-		#Calendar.where(:user_id => current_user).first
-
-		if currentCal.respond_to?('events')
-
-			if currentCal.events.where(:name => @event.name, :start_time => @event.start_time).size == 0	
-	  			#currentCal.events << @event
-	  		end
-
-		else
-
-			#currentCal.events << @event
-
-  		end
 
   	end
 

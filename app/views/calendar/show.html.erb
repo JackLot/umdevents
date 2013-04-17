@@ -1,5 +1,12 @@
 <h2 class="page_header">My Calendar</h2>
-<div class="page_subheader signup_subheader_text">View events you've saved to your personal calendar.</div>
+<div class="page_subheader signup_subheader_text">
+	View events you've saved to your personal calendar.
+
+	<div class="export_calendar">
+		<a class="btn" type="button" ><i class="icon-arrow-down"></i> Export</a>
+	</div>
+
+</div>
 <br />
 
 
@@ -32,7 +39,7 @@
 
 						<%= f.hidden_field :event_id, :value => event.id %>
 						<%= f.hidden_field "addremove", :value => 1 %>
-						<%= f.submit "Remove", class: "btn btn-mini" %>
+						<%= f.submit "Remove", class: "btn btn-mini btn-danger" %>
 
 					<% end %>
 
