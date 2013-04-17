@@ -1,0 +1,17 @@
+<h2 class="page_header">Search</h2>
+<div class="page_subheader signup_subheader_text">Term: <%= params[:search] %></div>
+<br />
+
+<table>
+
+<% @events.each do |event| %>
+	<tr>
+		<td><%= link_to event.name, event %></td>
+	</tr>
+<% end %>
+
+</table>
+
+<% if @events.size == 0 %>
+	<em>No events found with that search parameter</em>
+<% end %>

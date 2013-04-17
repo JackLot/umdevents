@@ -45,10 +45,21 @@
 			</ul>
 
 			<div class="search_form">
+
+				<%= form_tag :controller => 'events_controller', :action => 'search', :method => 'get', :class => 'form-search' do %>
+					<%= text_field_tag :search, params[:search], :class => "input-medium" %>
+					<%= submit_tag "Search", :name => nil, :class => "btn search_btn" %>
+				<% end %>
+
+				<% if 1 == 0 %>
 				<form class="form-search">
+
 				  <input type="text" class="input-medium" placeholder="Search keywords, tags ...">
-				  <button type="submit" class="btn"><i class="icon-search"></i></button>
+				  <button type="submit" class="btn search_btn"><i class="icon-search"></i></button>
+
 				</form>
+				<% end %>
+
 			</div>
 
 		</div>

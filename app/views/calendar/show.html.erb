@@ -23,15 +23,21 @@
 						<%= event.end_time.strftime('%l') %>:<%= event.end_time.strftime('%M') %><%= event.end_time.strftime('%P') %>
 					</div>
 				</td>
-			<td class="event-name">
+
+			<td class="event-name calendar-view">
 
 				<div class="remove_from_calendar">
 					
-					<a href="#" class="btn btn-mini" rel="tooltip" data-placement="top" data-title="Create a reminder"><i class="icon-eye-open"></i></a>
-					
-					<a href="#" class="btn btn-mini" rel="tooltip" data-placement="top" data-title="Remove from Calendar"><i class="icon-minus"></i></a>
+					<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
+
+						<%= f.hidden_field :event_id, :value => event.id %>
+						<%= f.hidden_field "addremove", :value => 1 %>
+						<%= f.submit "Remove", class: "btn btn-mini" %>
+
+					<% end %>
 
 				</div>
+
 				<%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
 			</td>
 

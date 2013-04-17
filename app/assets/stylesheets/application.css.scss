@@ -438,6 +438,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 .search_form input{
 	width: 180px;
+	margin-bottom: 0;
+}
+
+.search_form .search_btn{
+	width: 80px;
+
 }
 
 .event_actions_dropdown{
@@ -574,4 +580,58 @@ a.logout_btn{
 
 .create_event_form #event_start_time_5i, .create_event_form #event_end_time_5i{
 	width: 150px;
+}
+
+/*REMIND ME BOX ---------------------------------------------*/
+.remindMeBox{
+	border-top: 1px solid #cccccc;
+	margin-bottom: 18px;
+	padding: 15px 0px 15px 0px;
+	height: 110px;
+	margin-top: 25px;
+}
+
+#remindMeText{
+	text-decoration: underline;
+	font-size: 14px;
+}
+
+.set-reminder-email-box{
+	width: 175px;
+}
+
+.remindMeDropdown{
+	width: 120px;
+	float: left;
+	margin-right: 10px;
+}
+
+.remindMeBeforeLabel{
+	font-size: 15px;
+	color: #9e9e9e;
+	margin-top: 5px;
+}
+
+.remindMeSubmit{
+	margin-top: 5px;
+}
+
+.remindMeCancel{
+	font-size: 12px;
+	float: right;
+	position: relative;
+	top: 12px;
+}
+
+.addtocalbtn{
+	margin-bottom: -10px;
+}
+
+.calendar-view form{
+	margin: 0;
+}
+
+.calendar-view .remove_from_calendar{
+	margin-top: 8px;
+	margin-right: 5px;
 }

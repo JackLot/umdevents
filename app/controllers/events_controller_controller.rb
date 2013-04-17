@@ -1,5 +1,9 @@
 class EventsControllerController < ApplicationController
 
+	def search
+		@events = Event.search(params[:search])
+	end
+
 	def new
 		@event = Event.new
 	end

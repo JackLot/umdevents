@@ -27,10 +27,10 @@
 	  $('.alert.alert-success').alert('close');
 	}, 5000);
 
+	
 })(jQuery);
 
 (function($) {
 
-
-
+	
 })(jQuery);

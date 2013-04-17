@@ -6,7 +6,7 @@
 	<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
 
 		<div><%= f.hidden_field :event_id, :value => @event.id %></div>
-		<%= f.submit "Add to my Calendar", class: "btn" %>
+		<%= f.submit "Add to my Calendar", class: "btn addtocalbtn" %>
 
 	 <% end %>
 <% end %>

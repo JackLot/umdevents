@@ -8,6 +8,7 @@ Umdevents::Application.routes.draw do
   get "users_controller/new"
   get "events_controller/show"
   get "calendar/show"
+  get "events_controller/search"
 
   root :to => 'events_controller#index'
 
@@ -16,6 +17,7 @@ Umdevents::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', via: :delete
   match '/mycalendar', :to => 'calendar#show'
+  match '/events_controller/search', :to => 'events_controller#search'
 
   match '/events/:id', :to => 'events_controller#show', :as => :event
   match '/calendar/:id', :to => 'calendar#addtocal'
