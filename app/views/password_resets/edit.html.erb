@@ -1,0 +1,28 @@
+<h2 class="page_header" style="margin-bottom: 0px">Password Reset</h2>
+<div class="page_subheader signup_subheader_text" style="margin-bottom: 15px">
+</div>
+
+<%= form_for @user, :url => password_reset_path(params[:id]), :html =>  {:class => 'form-horizontal'} do |f| %>
+
+	<% if @users.errors.any? %>
+
+		//error messages
+
+	<% end %>
+
+	<div class="control-group">
+		<%= f.label :password, :class => 'control-label' %>
+		<div class="controls"><%= f.password_field :password %></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label 'Password Confirmation', :class => 'control-label' %>
+		<div class="controls"><%= f.password_field :password_confirmation %></div>
+	</div>
+
+	<div class="control-group">
+		<div class="controls"><%= f.submit "Update Password", :class => 'btn btn-primary'%>
+		</div>
+	</div>
+
+<% end %>

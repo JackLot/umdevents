@@ -2,21 +2,71 @@
 <div class="events-holder-title">Today <div class="event-holder-date"><%= Time.now.strftime("%m/%d/%Y") %></div></div>
 <table>
 
-	<% events = Event.all(:limit => 6, :order => 'start_time DESC') %>
+	
+	<% events = Event.where("(start_time > ? AND start_time < ?) OR (end_time > ? AND end_time < ?)", Time.now.getlocal.beginning_of_day, Time.now.getlocal.end_of_day, Time.now.getlocal.beginning_of_day, Time.now.getlocal.end_of_day) %>
 
 	<% events.each do |event| %>
+
+	<% if Time.now.utc >= event.start_time && Time.now.utc <= event.end_time %>
+		<% extra = "currently-happening" %>
+	<% end %>
+
 		<tr class="single-event-holder">
-			<table><tr><td valign="top" class="event-time"><%= event.start_time.strftime('%l') %>:<%= event.start_time.strftime('%M') %><%= event.start_time.strftime('%P') %></td> 
-			<td class="event-name"><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span></td></tr></table>
+
+			<table><tr class="<%= extra %>"><td valign="top" class="event-time"><%= event.start_time.getlocal.strftime('%l') %>:<%= event.start_time.getlocal.strftime('%M') %><%= event.start_time.getlocal.strftime('%P') %></td>
+			<td class="event-name"><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
+
+		</td></tr></table>
 		</tr>
+	<% end %>
+
+	<% if events.size == 0 %>
+			<tr><td style="padding: 10px; color: #717171"><em>No events found for today. Time to get some work done ehh?</em></td></tr>
 	<% end %>
 
 </table>
 </div>
 
-<% if events.size == 0 %>
-	<em>No events found</em>
-<% end %>
+<!-- ALL OTHER EVENTS -->
+
+<div class="events-holder todays-events">
+<div class="events-holder-title">Upcoming</div>
+<table>
+
+	<!-- THIS WEEK -->
+	<tr class="events-table-label-row"><td>This week</td></tr>
+	<% events = Event.where("start_time > ? AND end_time < ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week) %>
+	<% events.each do |event| %>
+		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 1}  %>
+	<% end %>
+	<% if events.size == 0 %>
+			<tr><td style="padding: 10px; color: #717171"><em>No events found for this week.</em></td></tr>
+	<% end %>
+
+	<!-- THIS MONTH -->
+	<tr class="events-table-label-row"><td>This month</td></tr>
+	<% events = Event.where("start_time > ? AND end_time < ?", Time.now.getlocal.end_of_week, Time.now.getlocal.end_of_month) %>
+	<% events.each do |event| %>
+		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 2}  %>
+	<% end %>
+	<% if events.size == 0 %>
+			<tr><td style="padding: 10px; color: #717171"><em>No events found for this month</em></td></tr>
+	<% end %>
+
+	<!-- LATER THAN THAT -->
+	<tr class="events-table-label-row"><td>Later than that</td></tr>
+	<% events = Event.where("start_time > ?", Time.now.getlocal.end_of_month) %>
+	<% events.each do |event| %>
+		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 3}  %>
+	<% end %>
+	<% if events.size == 0 %>
+			<tr><td style="padding: 10px; color: #717171"><em>No events found</em></td></tr>
+	<% end %>
+
+</table>
+</div>
+
+<!-- END ALL OTHER EVENTS -->
 
 <hr />
 

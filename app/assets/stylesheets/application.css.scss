@@ -330,7 +330,7 @@ h1, h2, h3 {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 
 	-webkit-box-shadow: 2px 2px 5px rgba(50, 50, 50, 0.10);
 	-moz-box-shadow: 2px 2px 5px rgba(50, 50, 50, 0.10);
@@ -418,6 +418,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	margin-top: 0px;
 	margin-right: 5px;
 }
+
+.events-table-label-row{
+	border-bottom: 1px solid #a5a5a5 !important;
+	border-top: 1px solid #a5a5a5 !important;
+	background: -moz-linear-gradient(left,  rgba(238,238,238,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(238,238,238,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+	background-color: #f6f6f6;
+	color: #565656;
+}
+
+.events-table-label-row td{
+	padding: 3px 5px 3px 5px;
+}
+
 
 .page_header{
 	font-size: 27px;
@@ -619,7 +638,6 @@ a.logout_btn{
 	margin-bottom: 18px;
 	padding: 15px 0px 15px 0px;
 	height: 110px;
-	margin-top: 25px;
 }
 
 #remindMeText{
@@ -675,7 +693,18 @@ a.logout_btn{
 
 #footer{
 	border-top: 1px solid #cccccc;
-	background-color: #EDEDED;
+	
+background: -moz-linear-gradient(top,  rgba(229,229,229,1) 0%, rgba(255,255,255,0.56) 44%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,229,229,1)), color-stop(44%,rgba(255,255,255,0.56)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(255,255,255,0.56) 44%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(255,255,255,0.56) 44%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(255,255,255,0.56) 44%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(229,229,229,1) 0%,rgba(255,255,255,0.56) 44%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+
+background-color: #EDEDED;
+
 }
 
 #footer .footer-info{
@@ -683,4 +712,30 @@ a.logout_btn{
 	font-size: 12px;
 	text-align: center;
 	color: #828282;
+}
+
+.signup-form{
+	width: 50%;
+	float: left;
+	padding-top: 10px;
+}
+
+.whyAccountHolder{
+	width: 44%;
+	height: 200px;
+	float: right;
+	font-size: 14px;
+}
+
+.whyAccountHolder table{
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+.whyAccountHolder table td{
+	padding-bottom: 18px;
+}
+
+.currently-happening{
+	border-bottom: 2px solid #479db9;
 }

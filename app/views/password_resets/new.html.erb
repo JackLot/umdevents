@@ -1,0 +1,17 @@
+<h2 class="page_header" style="margin-bottom: 0px">Password Reset</h2>
+<div class="page_subheader signup_subheader_text" style="margin-bottom: 15px">
+</div>
+
+<%= form_tag password_resets_path, :method => :post do %>
+	
+	<div class="control-group">
+		<div class="control-label" style="margin-bottom: 8px">Input your email address used to create your account</div>
+		<div class="controls"><%= text_field_tag :email, params[:email] %></div>
+	</div>
+
+	<div classs="control-group">
+		<div class="controls"><%= submit_tag "Reset Password", :class => 'btn btn-primary' %></div>
+	</div>
+
+
+<% end %>

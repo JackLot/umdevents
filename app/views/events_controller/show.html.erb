@@ -3,9 +3,9 @@
 
 <div id="event_date_time">
 <ul>
-	<li><table><tr><td><%= image_tag("small_calendar_icon_black.png") %></td><td valign="middle" style="padding-top: 3px"><%= @event.start_time.strftime('%A') %> <%= @event.start_time.strftime('%B') %> <%= @event.start_time.day %>, <%= @event.start_time.year %></td></tr></table></li>
+	<li><table><tr><td><%= image_tag("small_calendar_icon_black.png") %></td><td valign="middle" style="padding-top: 3px"><%= @event.start_time.getlocal.strftime('%A') %> <%= @event.start_time.getlocal.strftime('%B') %> <%= @event.start_time.getlocal.day %>, <%= @event.start_time.getlocal.year %></td></tr></table></li>
 
-	<li><table><tr><td><%= image_tag("small_clock_icon_black.png") %></td><td valign="middle" style="padding-top: 3px"><%= @event.start_time.strftime('%l') %>:<%= @event.start_time.strftime('%M') %><%= @event.start_time.strftime('%P') %> - <%= @event.end_time.strftime('%l')%>:<%= @event.end_time.strftime('%M')%><%= @event.end_time.strftime('%P') %></td></tr></table></li>
+	<li><table><tr><td><%= image_tag("small_clock_icon_black.png") %></td><td valign="middle" style="padding-top: 3px"><%= @event.start_time.getlocal.strftime('%l') %>:<%= @event.start_time.getlocal.strftime('%M') %><%= @event.start_time.getlocal.strftime('%P') %> - <%= @event.end_time.getlocal.strftime('%l')%>:<%= @event.end_time.getlocal.strftime('%M')%><%= @event.end_time.getlocal.strftime('%P') %></td></tr></table></li>
 </ul>
 </div>
 
@@ -39,17 +39,22 @@
 	
 		<% if 1 == 0 %><a id="setRemindBTN" onclick"showremind()" class="btn setReminderBTN" style="margin-bottom: 10px" href="#"><i class="icon-eye-open"></i> Remind me</a><% end %>
 
-		<a class="btn" type="button" rel="tooltip" data-placement="left" data-title="Export to ICal format"><i class="icon-arrow-down"></i> Export</a>
+		<a class="btn" type="button" rel="tooltip" data-placement="left" data-title="Export to ICal format"><i class="icon-chevron-up"></i> Export</a>
 		
 
+		<h5 style="margin-bottom: 3px; margin-top: 30px;">Set Email Reminder</h5>
 		<div class="remindMeBox">
 
-			<input type="text" class="input-medium set-reminder-email-box" placeholder="Email address">
+			<% if !signed_in? %>
+				<input type="text" class="input-medium set-reminder-email-box" placeholder="Email address">
+			<% else %>
+				<input type="text" class="input-medium set-reminder-email-box" placeholder="Email address" value="<%= current_user.email %>">
+			<% end %>
 
 			<select class="remindMeDropdown">
 
 			  <option value="1">1 week</option>
-				  <option value="0">1 day</option>
+				  <option value="0">1 day</option>if
 				  <option value="2">1 hour</option>
 			  </select>
 

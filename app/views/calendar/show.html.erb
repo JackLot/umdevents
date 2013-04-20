@@ -3,7 +3,7 @@
 	View events you've saved to your personal calendar.
 
 	<div class="export_calendar">
-		<a class="btn" type="button" ><i class="icon-arrow-down"></i> Export</a>
+		<a class="btn" type="button" ><i class="icon-chevron-up"></i> Export Calendar</a>
 	</div>
 
 </div>
@@ -18,7 +18,7 @@
 <div class="events-holder-title">This Week</div>
 <table>
 
-	<% events = @cal.events.all(:order => 'start_time DESC') %>
+	<% events = @cal.events.where("end_time > ?", Time.now).order("start_time DESC") %>
 
 	<% events.each do |event| %>
 		<tr class="single-event-holder">
