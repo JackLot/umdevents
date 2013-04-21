@@ -40,7 +40,7 @@ class Event < ActiveRecord::Base
 	def self.search(search)
 
 		if search
-			find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+			where('name LIKE ?', "%#{search}%").order("start_time DESC")
 		else
 			find(:all)
 		end

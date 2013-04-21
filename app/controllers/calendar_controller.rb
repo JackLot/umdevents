@@ -8,7 +8,7 @@ class CalendarController < ApplicationController
   end
 
   def addtocal
-
+    
   	event = Event.find_by_id(params[:calendar][:event_id])
   	currentCal = current_user.calendar
   	

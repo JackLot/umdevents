@@ -3,7 +3,7 @@
 <table>
 
 	
-	<% events = Event.where("(start_time > ? AND start_time < ?) OR (end_time > ? AND end_time < ?)", Time.now.getlocal.beginning_of_day, Time.now.getlocal.end_of_day, Time.now.getlocal.beginning_of_day, Time.now.getlocal.end_of_day) %>
+	<% events = Event.where("((start_time > ? AND start_time < ?) OR (end_time > ? AND end_time < ?)) AND approved = ?", Time.now.getlocal, Time.now.getlocal.end_of_day, Time.now.getlocal, Time.now.getlocal.end_of_day, true) %>
 
 	<% events.each do |event| %>
 
@@ -35,7 +35,7 @@
 
 	<!-- THIS WEEK -->
 	<tr class="events-table-label-row"><td>This week</td></tr>
-	<% events = Event.where("start_time > ? AND end_time < ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week) %>
+	<% events = Event.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week, true) %>
 	<% events.each do |event| %>
 		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 1}  %>
 	<% end %>
@@ -45,7 +45,7 @@
 
 	<!-- THIS MONTH -->
 	<tr class="events-table-label-row"><td>This month</td></tr>
-	<% events = Event.where("start_time > ? AND end_time < ?", Time.now.getlocal.end_of_week, Time.now.getlocal.end_of_month) %>
+	<% events = Event.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_week, Time.now.getlocal.end_of_month, true) %>
 	<% events.each do |event| %>
 		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 2}  %>
 	<% end %>
@@ -55,7 +55,7 @@
 
 	<!-- LATER THAN THAT -->
 	<tr class="events-table-label-row"><td>Later than that</td></tr>
-	<% events = Event.where("start_time > ?", Time.now.getlocal.end_of_month) %>
+	<% events = Event.where("start_time > ? AND approved = ?", Time.now.getlocal.end_of_month, true) %>
 	<% events.each do |event| %>
 		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 3}  %>
 	<% end %>

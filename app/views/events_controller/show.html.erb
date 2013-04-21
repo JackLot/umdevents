@@ -11,12 +11,12 @@
 
 
 <div class="event_description">
-	<%= @event.description %>
+	<%= simple_format(@event.description) %>
 </div>
 
 <div class="event_location event_description">
-	<table><tr><td><strong>Location: &nbsp;</strong></td>
-		<td><%= @event.location %></td></tr></table>
+	<table><tr><td valign="top"><strong>Location: &nbsp;</strong></td>
+		<td><%= simple_format(@event.location) %></td></tr></table>
 </div>
 
 </table>
@@ -67,3 +67,30 @@
 	</div>
 
 </div>
+
+<div class="admin-actions">
+		<% if @event.approved == false %>
+
+			<%= form_tag :controller => 'events_controller', :action => 'approve_event', :method => :post do %>
+
+				<%= hidden_field_tag :eventID, @event.id %>
+				<%= hidden_field_tag :where_next, 2 %>
+				<%= hidden_field_tag :approved, true %>
+				<%= submit_tag "Approve", :class => 'btn btn-success btn-small' %>
+
+			<% end %>
+
+		<% else %>
+
+			<%= form_tag :controller => 'events_controller', :action => 'approve_event', :method => :post do %>
+
+				<%= hidden_field_tag :eventID, @event.id %>
+				<%= hidden_field_tag :where_next, 2 %>
+				<%= hidden_field_tag :approved, false %>
+				<%= submit_tag "Remove", :class => 'btn btn-danger btn-small' %>
+
+			<% end %>
+
+		<% end %>
+	</div>
+

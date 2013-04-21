@@ -1,7 +1,6 @@
 Umdevents::Application.routes.draw do
 
   get "event_reminders/new"
-
   get "password_resets/new"
 
   resources :events_controller
@@ -14,6 +13,7 @@ Umdevents::Application.routes.draw do
   get "events_controller/show"
   get "calendar/show"
   get "events_controller/search"
+  match "events_controller/approve_event", :to => 'events_controller#approve_event'
 
   root :to => 'events_controller#index'
 
@@ -25,6 +25,7 @@ Umdevents::Application.routes.draw do
   match '/events_controller/search', :to => 'events_controller#search'
   match '/user/profile', :to => 'users_controller#show'
   match '/resetpassword', :to => 'password_resets#new'
+  match '/moderate-events', to: 'events_controller#moderate'
 
   match '/events/:id', :to => 'events_controller#show', :as => :event
   match '/calendar/:id', :to => 'calendar#addtocal'

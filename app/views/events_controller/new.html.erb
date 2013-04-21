@@ -3,11 +3,12 @@
 Heard about a cool event happening around campus that you can't find here on UMD Events? Great! Why not tell everybody about it?!
 </div>
 
+
+
 <br /><br />
 <%= form_for @event, :html => {:class => 'form-horizontal create_event_form'}, :url => { :action => 'create'} do |f| %>
 
 	<%= render 'shared/error_messages' %>
-
 	<div class="control-group">
 		<%= f.label :name, :class => 'control-label' %>
 		<div class="controls"><%= f.text_field :name, :class => "event_name_TF" %></div>
@@ -31,7 +32,7 @@ Heard about a cool event happening around campus that you can't find here on UMD
 
 	<div class="control-group">
 		<%= f.label :description, :class => 'control-label' %>
-		<div class="controls"><%= f.text_area :description, :rows => "10", :class => "event_description_TA" %></div>
+		<div class="controls"><%= f.text_area :description, :rows => "10",:cols => "20", :class => "event_description_TA" %></div>
 	</div>
 
 	<div class="control-group">

@@ -39,7 +39,8 @@ class EventsControllerController < ApplicationController
 			:start_time => s_time,
 			:end_time => e_time,
 			:organization => params[:event][:organization],
-			:location => params[:event][:location]
+			:location => params[:event][:location],
+			:approved => false
 	    )
 
 	    if @event.save
@@ -72,7 +73,8 @@ class EventsControllerController < ApplicationController
 				:start_time => event.dtstart,
 				:end_time => event.dtend,
 				:organization => "UMD Athletics",
-				:location => event.location
+				:location => event.location,
+				:approved => true
 			)
 
 		end
@@ -125,6 +127,18 @@ class EventsControllerController < ApplicationController
   		@cEvents = @currentCal.events
 
 =end
+
+  	end
+
+  	def moderate
+  		@events = Event.where('approved = ?', false).order('start_time DESC')
+  	end
+
+  	def approve_event
+
+  		event = Event.find_by_id(params[:eventID]).update_attributes(:approved => params[:approved])
+
+  		redirect_to '/moderate-events'
 
   	end
 

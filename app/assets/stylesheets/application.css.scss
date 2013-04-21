@@ -288,6 +288,11 @@ h1, h2, h3 {
 	padding-left: 15px;
 }
 
+.event_location p{
+	margin: 0;
+	padding: 0;
+}
+
 .event_location{
 	margin: 10px 10px 10px 15px;
 	padding: 8px 0 0 0;
@@ -336,7 +341,7 @@ h1, h2, h3 {
 	-moz-box-shadow: 2px 2px 5px rgba(50, 50, 50, 0.10);
 	box-shadow: 2px 2px 5px rgba(50, 50, 50, 0.10);
 
-	width: 73%;
+	width: 99%;
 
 }
 
@@ -391,7 +396,7 @@ h1, h2, h3 {
 }
 
 .single-event-holder td{
-	border-bottom: 1px solid #a5a5a5;
+	/*border-bottom: 1px solid #a5a5a5;*/
 }
 
 .events-holder .events-holder-title{
@@ -476,7 +481,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 
 .search-result{
 	border-bottom: 1px solid #cccccc;
-	width: 750px;
+	width: 850px;
 	margin-left: 10px;
 	padding: 10px;
 }
@@ -491,6 +496,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 	float: right;
 }
 
+.event-brief form{
+	margin: 0;
+}
+
 .search_form .search_btn{
 	width: 70px;
 
@@ -499,6 +508,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 .event_actions_dropdown{
 	float:right;
 	margin-right: 10px;
+}
+
+.past-event-label{
+	margin-left: 7px;
 }
 
 
@@ -590,7 +603,7 @@ a.logout_btn{
 }
 
 .event_description_TA{
-	width: 500px;
+	width: 600px;
 }
 
 .event_name_TF{
@@ -738,4 +751,11 @@ background-color: #EDEDED;
 
 .currently-happening{
 	border-bottom: 2px solid #479db9;
+}
+
+.admin-actions{
+	float: right;
+	margin-top: 10px;
+	display: inline-table;
+	margin-right: 32px;
 }

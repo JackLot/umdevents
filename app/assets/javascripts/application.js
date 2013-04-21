@@ -32,5 +32,6 @@
 
 (function($) {
 
+	$('.event_description_TA').wysihtml5();
 	
 })(jQuery);

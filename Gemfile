@@ -46,4 +46,5 @@ gem 'ri_cal'
 gem 'icalendar'
 gem 'bcrypt-ruby'
 gem "combined_time_select", "~> 1.0.0"
+#gem 'redactor-rails'
 #gem 'feedzirra'
