@@ -43,24 +43,41 @@
 		
 
 		<h5 style="margin-bottom: 3px; margin-top: 30px;">Set Email Reminder</h5>
+
 		<div class="remindMeBox">
 
-			<% if !signed_in? %>
-				<input type="text" class="input-medium set-reminder-email-box" placeholder="Email address">
-			<% else %>
-				<input type="text" class="input-medium set-reminder-email-box" placeholder="Email address" value="<%= current_user.email %>">
+			<% if @r %>
+
+				<table class="myReminders">
+					<tr>
+						<td valign="top"><%= image_tag("reminder-bell-icon.png") %></td>
+						<td>
+							<% @r.each do |r| %>
+								<%= @ct[r.type_of.to_i] %><br />
+							<% end %>
+						</td>
+					</tr>
+				</table>
+
 			<% end %>
 
-			<select class="remindMeDropdown">
+			<%= form_tag :controller => 'reminder', :action => 'create', :method => :post do %>
 
-			  <option value="1">1 week</option>
-				  <option value="0">1 day</option>if
-				  <option value="2">1 hour</option>
-			  </select>
+				<%= hidden_field_tag :event_id, @event.id %>
 
-			  <div class="remindMeBeforeLabel">before</div>
+				<% if !signed_in? %>
+					<%= text_field_tag :send_to, nil, :class => "input-medium set-reminder-email-box" %>
+				<% else %>
+					<%= text_field_tag(:send_to, current_user.email, :class => "input-medium set-reminder-email-box") %>
+				<% end %>
+				
+				<%= select_tag :type_of, options_for_select([["1 day", 1], ["1 week", 4], ["1 month", 6]]), :class => "remindMeDropdown" %>
 
-			<a type="submit" class="btn btn-small btn-success remindMeSubmit">Set Reminder</a>
+				<div class="remindMeBeforeLabel">before</div>
+
+				<%= submit_tag "Set Reminder", :class => 'btn btn-small btn-success remindMeSubmit' %>
+
+			<% end %>
 
 		</div>
 
@@ -68,7 +85,9 @@
 
 </div>
 
-<div class="admin-actions">
+<% if current_user && current_user.admin %>
+
+	<div class="admin-actions">
 		<% if @event.approved == false %>
 
 			<%= form_tag :controller => 'events_controller', :action => 'approve_event', :method => :post do %>
@@ -93,4 +112,6 @@
 
 		<% end %>
 	</div>
+	
+<% end %>
 

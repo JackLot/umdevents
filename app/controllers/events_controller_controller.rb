@@ -33,6 +33,12 @@ class EventsControllerController < ApplicationController
 	    	params[:event][:end_time].sec
 	    )
 
+	    if current_user.admin == true
+			approved = true
+		else
+			approved = false
+		end
+
 	    @event = Event.new(
 	    	:name => params[:event][:name],
 			:description => params[:event][:description],
@@ -40,7 +46,7 @@ class EventsControllerController < ApplicationController
 			:end_time => e_time,
 			:organization => params[:event][:organization],
 			:location => params[:event][:location],
-			:approved => false
+			:approved => approved
 	    )
 
 	    if @event.save
@@ -112,6 +118,10 @@ class EventsControllerController < ApplicationController
   	def show
 
 		@event = Event.find(params[:id])
+		if(current_user) 
+			@r = Reminder.where('user_id = ? AND event_id = ?', current_user.id, @event.id) 
+			@ct = {1 => "1 day before", 2 => "2 days before", 3 => "4 days before", 4 => "1 week before", 5 => "2 weeks before", 6 => "1 month before"}
+		end
 =begin
   		
   		User.create(:username => "JackLot", :email => "echoninja110@gmail.com", :password => "Devteam1")

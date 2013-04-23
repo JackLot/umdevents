@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  send_to: MyString
+  date_to_send: 2013-04-22 20:17:24
+  type: 
+
+two:
+  send_to: MyString
+  date_to_send: 2013-04-22 20:17:24
+  type: 

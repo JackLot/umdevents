@@ -5,6 +5,12 @@
 
 	<div class="c1 general-info-edit">
 
+		<% if current_user.admin? %>
+			<% @reminders.each do |reminder| %>
+				<%= reminder.inspect %>
+			<% end %>
+		<% end %>
+		
 	</div>
 
 	<div class="c2 password-change">

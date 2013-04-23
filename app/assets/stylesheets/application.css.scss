@@ -232,10 +232,12 @@ h1, h2, h3 {
 }
 
 .event_name_holder{
-	padding: 12px 5px 12px 10px;
+
+	padding: 8px 5px 8px 10px;
 	font-size: 22px;
 	color: #479DB9;
 	font-weight: bold;
+	line-height: 26px;
 
 	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
@@ -244,8 +246,8 @@ h1, h2, h3 {
 	background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(237,237,237,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
-}
 
+}
 
 #event_date_time ul{
 	list-style-type: none;
@@ -649,8 +651,19 @@ a.logout_btn{
 .remindMeBox{
 	border-top: 1px solid #cccccc;
 	margin-bottom: 18px;
-	padding: 15px 0px 15px 0px;
+	padding: 5px 0px 15px 0px;
 	height: 110px;
+}
+
+.myReminders{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	color: #9a9a9a;
+	size: 11px;
+}
+
+.myReminders img{
+	margin-right: 5px;
 }
 
 #remindMeText{
@@ -750,7 +763,8 @@ background-color: #EDEDED;
 }
 
 .currently-happening{
-	border-bottom: 2px solid #479db9;
+	background-color: #e9f2f5;
+
 }
 
 .admin-actions{

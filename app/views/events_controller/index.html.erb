@@ -3,7 +3,7 @@
 <table>
 
 	
-	<% events = Event.where("((start_time > ? AND start_time < ?) OR (end_time > ? AND end_time < ?)) AND approved = ?", Time.now.getlocal, Time.now.getlocal.end_of_day, Time.now.getlocal, Time.now.getlocal.end_of_day, true) %>
+	<% events = Event.where("((start_time > ? AND start_time < ?) OR (end_time > ? AND end_time < ?)) AND approved = ?", Time.now.getlocal, Time.now.getlocal.end_of_day, Time.now.getlocal, Time.now.getlocal.end_of_day, true).order('start_time ASC') %>
 
 	<% events.each do |event| %>
 
@@ -68,6 +68,8 @@
 
 <!-- END ALL OTHER EVENTS -->
 
+<% if 1 == 0 %>
+
 <hr />
 
 <hr />
@@ -124,3 +126,5 @@
 <% end %>
 
 <hr />
+
+<% end %>
