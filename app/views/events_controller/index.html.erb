@@ -14,7 +14,7 @@
 		<tr class="single-event-holder">
 
 			<table><tr class="<%= extra %>"><td valign="top" class="event-time"><%= event.start_time.getlocal.strftime('%l') %>:<%= event.start_time.getlocal.strftime('%M') %><%= event.start_time.getlocal.strftime('%P') %></td>
-			<td class="event-name"><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
+			<td class="event-name"><%= render partial: 'shared/addtocal-small', locals: {e: event}  %><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
 
 		</td></tr></table>
 		</tr>
@@ -35,7 +35,7 @@
 
 	<!-- THIS WEEK -->
 	<tr class="events-table-label-row"><td>This week</td></tr>
-	<% events = Event.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week, true) %>
+	<% events = Event.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week, true).order('start_time ASC') %>
 	<% events.each do |event| %>
 		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 1}  %>
 	<% end %>
@@ -45,7 +45,7 @@
 
 	<!-- THIS MONTH -->
 	<tr class="events-table-label-row"><td>This month</td></tr>
-	<% events = Event.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_week, Time.now.getlocal.end_of_month, true) %>
+	<% events = Event.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_week, Time.now.getlocal.end_of_month, true).order('start_time ASC') %>
 	<% events.each do |event| %>
 		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 2}  %>
 	<% end %>
@@ -55,7 +55,7 @@
 
 	<!-- LATER THAN THAT -->
 	<tr class="events-table-label-row"><td>Later than that</td></tr>
-	<% events = Event.where("start_time > ? AND approved = ?", Time.now.getlocal.end_of_month, true) %>
+	<% events = Event.where("start_time > ? AND approved = ?", Time.now.getlocal.end_of_month, true).order('start_time ASC') %>
 	<% events.each do |event| %>
 		<%= render partial: 'events_controller/display-event-in-table', locals: {event: event, type: 3}  %>
 	<% end %>

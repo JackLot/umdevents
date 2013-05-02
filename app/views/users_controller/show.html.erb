@@ -1,5 +1,5 @@
 <h2 class="page_header"><%= @user.username %></h2>
-<div class="page_subheader signup_subheader_text"></div>
+<div class="page_subheader signup_subheader_text">Created on: <%= @user.created_at.strftime("%m/%d/%Y") %></div>
 
 <div class="profile-holder">
 

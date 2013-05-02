@@ -229,6 +229,7 @@ h1, h2, h3 {
 	box-shadow: 2px 2px 5px rgba(50, 50, 50, 0.10);
 	float: left;
 	width: 72%;
+	margin-bottom: 35px;
 }
 
 .event_name_holder{
@@ -380,6 +381,8 @@ h1, h2, h3 {
 	color: #858585;
 	line-height: 17px;
 	padding: 7px;
+	padding-top: 10px;
+	padding-bottom: 5px;
 }
 
 .events-holder .event-name a{
@@ -700,6 +703,21 @@ a.logout_btn{
 
 .addtocalbtn{
 	margin-bottom: -10px;
+}
+
+.addtocal-small{
+	margin-top: 3px;
+	width: 25px !important;
+	font-size: 12pt;
+}
+
+.addtocal-small-holder{
+	float: right;
+}
+
+.addtocal-small-holder form{
+	padding: 0;
+	margin: 0;
 }
 
 .calendar-view form{

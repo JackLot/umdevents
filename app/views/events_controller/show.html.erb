@@ -46,7 +46,7 @@
 
 		<div class="remindMeBox">
 
-			<% if @r %>
+			<% if @r && @r.length != 0 %>
 
 				<table class="myReminders">
 					<tr>
@@ -59,6 +59,8 @@
 					</tr>
 				</table>
 
+			<% else %>
+				<div style="height: 10px;"></div>
 			<% end %>
 
 			<%= form_tag :controller => 'reminder', :action => 'create', :method => :post do %>

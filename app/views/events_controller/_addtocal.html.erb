@@ -1,12 +1,22 @@
 <% if !current_user.calendar.events.find_by_id(@event.id).nil? %>
 
-	<a class="btn disabled" rel="tooltip" data-placement="left" data-title="Event already added to your calendar" style="margin-bottom: 10px;"><i class="icon-plus"></i> Added to my calendar</a>
+	<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
+
+		<%= f.hidden_field :event_id, :value => @event.id %>
+		<%= f.hidden_field "addremove", :value => 1 %>
+		<%= f.hidden_field "rd", :value => 2 %>
+		<%= f.submit "Remove from my calendar", class: "btn addtocalbtn" %>
+
+	<% end %>
 
 <% else %>
+
 	<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
 
 		<div><%= f.hidden_field :event_id, :value => @event.id %></div>
-		<%= f.submit "Add to my Calendar", class: "btn addtocalbtn" %>
+		<%= f.hidden_field "rd", :value => 2 %>
+		<% if 1 == 1 %> <%= f.submit "Add to my Calendar", class: "btn addtocalbtn" %> <% end %>
 
 	 <% end %>
+
 <% end %>

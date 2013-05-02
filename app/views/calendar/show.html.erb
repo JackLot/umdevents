@@ -9,16 +9,16 @@
 </div>
 <br />
 
-
 <% if @cal.events.size == 0 %>
 	<em>No events found</em>
 <% else %>
+
 
 <div class="events-holder todays-events my-calendar-events">
 <div class="events-holder-title">This Week</div>
 <table>
 
-	<% events = @cal.events.where("end_time > ?", Time.now).order("start_time DESC") %>
+	<% events = @cal.events.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week, true).order('start_time ASC') %>
 
 	<% events.each do |event| %>
 		<tr class="single-event-holder">
@@ -39,6 +39,53 @@
 
 						<%= f.hidden_field :event_id, :value => event.id %>
 						<%= f.hidden_field "addremove", :value => 1 %>
+						<%= f.hidden_field "rd", :value => 3 %>
+						<%= f.submit "Remove", class: "btn btn-mini btn-danger" %>
+
+					<% end %>
+
+				</div>
+
+				<%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
+			</td>
+
+		</tr></table>
+		</tr>
+	<% end %>
+	<% if events.size == 0 %>
+			<tr><td style="padding: 10px; color: #717171"><em>You don't have any upcoming events this week</em></td></tr>
+	<% end %>
+
+</table>
+</div>
+
+
+<div class="events-holder todays-events my-calendar-events">
+<div class="events-holder-title">Upcoming</div>
+<table>
+
+	<% events = @cal.events.where("end_time > ?", Time.now.getlocal.end_of_week).order("start_time DESC") %>
+
+	<% events.each do |event| %>
+		<tr class="single-event-holder">
+			<table><tr>
+				<td class="event-wday" valign="top">
+					<div><%= event.start_time.getlocal.strftime('%B') %> <%= event.start_time.getlocal.strftime('%d') %></div>
+					<div valign="top" class="event-time" style="width: 115px; padding: 0 0 0 3px">
+						<%= event.start_time.getlocal.strftime('%l') %>:<%= event.start_time.getlocal.strftime('%M') %><%= event.start_time.getlocal.strftime('%P') %> -
+						<%= event.end_time.getlocal.strftime('%l') %>:<%= event.end_time.getlocal.strftime('%M') %><%= event.end_time.getlocal.strftime('%P') %>
+					</div>
+				</td>
+
+			<td class="event-name calendar-view">
+
+				<div class="remove_from_calendar">
+					
+					<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
+
+						<%= f.hidden_field :event_id, :value => event.id %>
+						<%= f.hidden_field "addremove", :value => 1 %>
+						<%= f.hidden_field "rd", :value => 3 %>
 						<%= f.submit "Remove", class: "btn btn-mini btn-danger" %>
 
 					<% end %>

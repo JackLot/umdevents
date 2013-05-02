@@ -1,0 +1,26 @@
+<% if current_user %>
+	<div class="addtocal-small-holder">
+		<% if !current_user.calendar.events.find_by_id(e.id).nil? %>
+
+			<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
+
+				<%= f.hidden_field :event_id, :value => e.id %>
+				<%= f.hidden_field "addremove", :value => 1 %>
+				<%= f.hidden_field "rd", :value => 1 %>
+				<%= f.submit "-", class: "btn btn-mini addtocal-small" %>
+
+			<% end %>
+
+		<% else %>
+
+			<%= form_for current_user.calendar, html: { method: :addtocal} do |f| %>
+
+				<div><%= f.hidden_field :event_id, :value => e.id %></div>
+				<%= f.hidden_field "rd", :value => 1 %>
+				<% if 1 == 1 %> <%= f.submit "+", class: "btn btn-mini addtocal-small" %> <% end %>
+
+			 <% end %>
+
+		<% end %>
+	</div>
+<% end %>

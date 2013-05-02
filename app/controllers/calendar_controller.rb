@@ -18,14 +18,23 @@ class CalendarController < ApplicationController
     		  currentCal.events << event
     	  end
 
-	    redirect_to event
+        message = "Event successfully added to your calendar!"
 
     else
 
       currentCal.events.destroy(params[:calendar][:event_id])
 
-      redirect_to '/mycalendar'
+      message = "Event removed from your calendar"
 
+    end
+
+
+    if params[:calendar][:rd].to_i == 1
+      redirect_to root_path, :flash => {:success => message}
+    elsif params[:calendar][:rd].to_i == 2
+      redirect_to event, :flash => {:success => message}
+    else
+      redirect_to '/mycalendar', :flash => {:success => message}
     end
 
   end

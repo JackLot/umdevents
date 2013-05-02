@@ -31,6 +31,7 @@
 
 			
 			<td class="event-name">
+				<%= render partial: 'shared/addtocal-small', locals: {e: event}  %>
 				<%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
 			</td>
 		</tr>
