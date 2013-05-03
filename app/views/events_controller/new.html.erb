@@ -41,6 +41,14 @@ Heard about a cool event happening around campus that you can't find here on UMD
 	</div>
 
 	<div class="control-group">
+		<%= f.label :tags, :class => 'control-label' %>
+		<div class="controls">
+			<span class="input-label">Enter tags separated by commas (ex. music, free food)</span><br />
+			<%= f.text_field :tags, value: "" %>
+		</div>
+	</div>
+
+	<div class="control-group">
 		<%= f.label :organization, :class => 'control-label' %>
 		<div class="controls"><%= f.text_field :organization %></div>
 	</div>

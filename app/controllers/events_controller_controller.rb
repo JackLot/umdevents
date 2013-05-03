@@ -8,9 +8,31 @@ class EventsControllerController < ApplicationController
 		@event = Event.new
 	end
 
+	def export
+
+	  @calendar = Icalendar::Calendar.new
+	  e = Event.find(params[:id])
+	    event = Icalendar::Event.new
+	    event.start = e.start_time.strftime("%Y%m%dT%H%M%S")
+	    event.end = e.end_time.strftime("%Y%m%dT%H%M%S")
+	    event.summary = e.name
+	    event.description = e.description
+	    event.location = e.location
+	    @calendar.add(event)
+
+      @calendar.publish
+
+      headers['Content-Type'] = "text/calendar; charset=UTF-8"
+      render :text => @calendar.to_ical, :layout => false
+
+    end
+
 	def create
 		#raise
 	    #@event = Event.new(params[:user])
+	    if 1 == 0
+	   		render 'new', :flash => {:error => "Could not create event"}
+	   	end
 
 	    params[:event].parse_time_select! :start_time
 	    params[:event].parse_time_select! :end_time
@@ -46,7 +68,8 @@ class EventsControllerController < ApplicationController
 			:end_time => e_time,
 			:organization => params[:event][:organization],
 			:location => params[:event][:location],
-			:approved => approved
+			:approved => approved,
+			:tag_list => params[:event][:tags]
 	    )
 
 	    if @event.save

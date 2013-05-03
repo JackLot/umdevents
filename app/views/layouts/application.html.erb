@@ -56,8 +56,9 @@
 			<div class="search_form">
 
 				<%= form_tag :controller => 'events_controller', :action => 'search', :method => 'get', :class => 'form-search' do %>
-					<%= text_field_tag :search, params[:search], :class => "input-medium" %>
-					<%= submit_tag "Search", :name => nil, :class => "btn search_btn" %>
+					<%= text_field_tag :search, params[:search], :class => "input-medium", :placeholder => "Search keywords, tags..." %>
+					<% if 1 == 0 %><%= submit_tag "Search", :name => nil, :class => "btn search_btn" %><% end %>
+					<button type="submit" class="btn search_btn"><i class="icon-search"></i></button>
 				<% end %>
 
 				<% if 1 == 0 %>

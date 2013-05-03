@@ -15,8 +15,28 @@
 </div>
 
 <div class="event_location event_description">
-	<table><tr><td valign="top"><strong>Location: &nbsp;</strong></td>
-		<td><%= simple_format(@event.location) %></td></tr></table>
+
+		<table style="float: right; display: inline-table">
+			<tr>
+				<td valign="top"><strong>Tags: &nbsp;</strong></td>
+				<td>
+					<% @event.tags.each do |t| %>
+						<span class="tag"><%= t %></span>
+					<% end %>
+					<% if @event.tags.size == 0 %>
+						<span class="input-label">No tags</span>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+
+		<table style="display: inline-table">
+			<tr>
+				<td valign="top"><strong>Location: &nbsp;</strong></td>
+				<td><%= simple_format(@event.location) %></td>
+			</tr>
+		</table>
+
 </div>
 
 </table>
@@ -39,7 +59,7 @@
 	
 		<% if 1 == 0 %><a id="setRemindBTN" onclick"showremind()" class="btn setReminderBTN" style="margin-bottom: 10px" href="#"><i class="icon-eye-open"></i> Remind me</a><% end %>
 
-		<a class="btn" type="button" rel="tooltip" data-placement="left" data-title="Export to ICal format"><i class="icon-chevron-up"></i> Export</a>
+		<a class="btn" type="button" rel="tooltip" data-placement="left" data-title="Export to ICal format" href="<%= export_events_controller_path(@event) %>"><i class="icon-chevron-up"></i> Export</a>
 		
 
 		<h5 style="margin-bottom: 3px; margin-top: 30px;">Set Email Reminder</h5>
@@ -68,7 +88,7 @@
 				<%= hidden_field_tag :event_id, @event.id %>
 
 				<% if !signed_in? %>
-					<%= text_field_tag :send_to, nil, :class => "input-medium set-reminder-email-box" %>
+					<%= text_field_tag :send_to, nil, :class => "input-medium set-reminder-email-box", :placeholder => "Email address..." %>
 				<% else %>
 					<%= text_field_tag(:send_to, current_user.email, :class => "input-medium set-reminder-email-box") %>
 				<% end %>

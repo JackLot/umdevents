@@ -12,6 +12,18 @@ Umdevents::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :calendar, :only => [:show, :addtocal]
 
+  resources :calendar do
+    member do
+      get 'export'
+    end
+  end
+
+  resources :events_controller do
+    member do
+      get 'export'
+    end
+  end
+
   get "users_controller/new"
   get "events_controller/show"
   get "calendar/show"
@@ -31,7 +43,10 @@ Umdevents::Application.routes.draw do
   match '/moderate-events', to: 'events_controller#moderate'
 
   match '/events/:id', :to => 'events_controller#show', :as => :event
+  match '/events/:id/export', :to => 'events_controller#export'
   match '/calendar/:id', :to => 'calendar#addtocal'
+  match '/calendar/:id/export', :to => 'calendar#export'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

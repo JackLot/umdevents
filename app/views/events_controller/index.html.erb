@@ -13,8 +13,8 @@
 
 		<tr class="single-event-holder">
 
-			<table><tr class="<%= extra %>"><td valign="top" class="event-time"><%= event.start_time.getlocal.strftime('%l') %>:<%= event.start_time.getlocal.strftime('%M') %><%= event.start_time.getlocal.strftime('%P') %></td>
-			<td class="event-name"><%= render partial: 'shared/addtocal-small', locals: {e: event}  %><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
+			<table><tr class="<%= extra %>"><td valign="top" class="event-time front-page"><%= event.start_time.getlocal.strftime('%l') %>:<%= event.start_time.getlocal.strftime('%M') %><%= event.start_time.getlocal.strftime('%P') %></td>
+			<td class="event-name front-page"><%= render partial: 'shared/addtocal-small', locals: {e: event}  %><%= link_to event.name, event %><br /><span class="event-organization"><%= event.location %></span>
 
 		</td></tr></table>
 		</tr>

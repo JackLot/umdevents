@@ -7,6 +7,30 @@ class CalendarController < ApplicationController
 
   end
 
+   def export
+
+      cal = Calendar.find(params[:id]);
+      @calendar = Icalendar::Calendar.new
+
+      cal.events.each do |e|
+
+        event = Icalendar::Event.new
+        event.start = e.start_time.strftime("%Y%m%dT%H%M%S")
+        event.end = e.end_time.strftime("%Y%m%dT%H%M%S")
+        event.summary = e.name
+        event.description = e.description
+        event.location = e.location
+        @calendar.add(event)
+
+      end
+
+      @calendar.publish
+
+      headers['Content-Type'] = "text/calendar; charset=UTF-8"
+      render :text => @calendar.to_ical, :layout => false
+
+    end
+
   def addtocal
     
   	event = Event.find_by_id(params[:calendar][:event_id])
