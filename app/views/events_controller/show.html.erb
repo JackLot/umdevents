@@ -20,9 +20,14 @@
 			<tr>
 				<td valign="top"><strong>Tags: &nbsp;</strong></td>
 				<td>
-					<% @event.tags.each do |t| %>
-						<span class="tag"><%= t %></span>
-					<% end %>
+					<ul class="tag-list"><% @event.tags.each do |t| %>
+						<li>
+						<%= form_tag :controller => 'events_controller', :action => 'tag', :method => 'get', :class => 'form-search' do %>
+							<%= hidden_field_tag :tag, t %>
+							<button type="submit" class="tag"><%= t %></button>
+						<% end %></li>
+
+					<% end %></ul>
 					<% if @event.tags.size == 0 %>
 						<span class="input-label">No tags</span>
 					<% end %>

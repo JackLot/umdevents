@@ -813,14 +813,31 @@ background-color: #EDEDED;
 
 	background-color: #FFEE80;
 	/*ffdd00*/
-	padding: 3px;
+	padding: 2px;
 	padding-left: 6px;
 	padding-right: 6px;
 	font-size: 12px;
 	color: #756600;
 	border: 1px solid #E6C700;
+	display: inline-block;
+}
+
+.tag:hover{
+	background-color: #ffdd00;
 }
 
 .check{
 	padding-right: 7px;
+}
+
+.tag-list{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tag-list li{
+	display: inline;
+	float: left;
+	padding-right: 6px;
 }

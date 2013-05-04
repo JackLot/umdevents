@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 	belongs_to :user
 	has_and_belongs_to_many :calendars
 	acts_as_taggable
+	scope :by_join_date, order("created_at DESC")
 
 	validates :name, :presence => true
 =begin

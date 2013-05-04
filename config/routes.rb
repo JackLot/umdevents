@@ -28,6 +28,7 @@ Umdevents::Application.routes.draw do
   get "events_controller/show"
   get "calendar/show"
   get "events_controller/search"
+  get "events_controller/tag"
   match "events_controller/approve_event", :to => 'events_controller#approve_event'
 
   root :to => 'events_controller#index'
@@ -38,6 +39,7 @@ Umdevents::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy', via: :delete
   match '/mycalendar', :to => 'calendar#show'
   match '/events_controller/search', :to => 'events_controller#search'
+  match '/events_controller/tag', :to => 'events_controller#tag'
   match '/user/profile', :to => 'users_controller#show'
   match '/resetpassword', :to => 'password_resets#new'
   match '/moderate-events', to: 'events_controller#moderate'

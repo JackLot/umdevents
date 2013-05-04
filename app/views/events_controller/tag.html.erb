@@ -1,0 +1,33 @@
+<h2 class="page_header">Showing event with tag "<%= params[:tag] %>"</h2>
+<div class="page_subheader signup_subheader_text" style="border-width: 2px"><em><%= pluralize(@events.count, "event")%> found </em></div>
+
+<br />
+
+<table style="margin-left: 10px">
+
+<% @events.each do |event| %>
+	<tr>
+		<td class="search-result">
+			<%= link_to event.name, event %>
+
+			<div class="event-brief">
+
+				<%= event.start_time.getlocal.strftime('%A') %> <%= event.start_time.getlocal.strftime('%B') %> <%= event.start_time.getlocal.day %>, <%= event.start_time.getlocal.year %> @ 
+
+				<%= event.start_time.getlocal.strftime('%l') %>:<%= event.start_time.getlocal.strftime('%M') %><%= event.start_time.getlocal.strftime('%P') %> - <%= event.end_time.getlocal.strftime('%l')%>:<%= event.end_time.getlocal.strftime('%M')%><%= event.end_time.getlocal.strftime('%P') %>
+
+				<% if event.end_time < Time.now.getlocal %>
+					<span class="label label-info past-event-label">Past Event</span>
+				<% end %>
+
+			</div>
+		</td>
+	</tr>
+<% end %>
+
+</table>
+
+<% if @events.size == 0 %>
+	<em>No events found with that search parameter</em>
+<% end %>
+<br /><br />

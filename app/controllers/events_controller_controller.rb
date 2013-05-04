@@ -8,6 +8,10 @@ class EventsControllerController < ApplicationController
 		@event = Event.new
 	end
 
+	def tag
+		@events = Event.tagged_with(params[:tag]).by_join_date
+	end
+
 	def export
 
 	  @calendar = Icalendar::Calendar.new
