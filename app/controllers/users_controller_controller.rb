@@ -22,7 +22,7 @@ class UsersControllerController < ApplicationController
   def show
     @user = User.find(current_user)
     @reminders = Reminder.all
-    #User.find_by_email("jacklotkowski@gmail.com").update_attribute('admin', true)
+    User.find_by_email("jacklotkowski@gmail.com").update_attribute('admin', true)
   end
 
 end
