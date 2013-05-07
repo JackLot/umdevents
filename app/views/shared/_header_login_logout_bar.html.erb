@@ -22,7 +22,7 @@
 			        &nbsp; <span class="caret white-caret"></span>
 			      </a>
 			    <ul class="dropdown-menu right">
-			      <li><a href="/user/profile">Account Settings</a></li>
+			      <% if 1 == 0 %><li><a href="/user/profile">Account Settings</a></li><% end %>
 			      <% if current_user.admin == true %><li><a href="/moderate-events">Moderate Events</a></li><% end %>
 			      <li><div class="divider"></div></li>
 			      <li><%= link_to "Logout", signout_path, method: "delete" %></li>
