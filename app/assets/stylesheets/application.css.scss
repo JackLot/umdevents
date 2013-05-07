@@ -834,10 +834,16 @@ background-color: #EDEDED;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	margin-bottom: 3px;
 }
 
 .tag-list li{
 	display: inline;
 	float: left;
 	padding-right: 6px;
+}
+
+.tag-list li form{
+	margin: 0;
+	padding: 0;
 }

@@ -18,7 +18,7 @@
 <div class="events-holder-title">This Week</div>
 <table>
 
-	<% events = @cal.events.where("start_time > ? AND end_time < ? AND approved = ?", Time.now.getlocal.end_of_day, Time.now.getlocal.end_of_week, true).order('start_time ASC') %>
+	<% events = @cal.events.where("start_time > ? AND end_time < ? AND approved = ?", Time.now, Time.now.getlocal.end_of_week, true).order('start_time ASC') %>
 
 	<% events.each do |event| %>
 		<tr class="single-event-holder">
@@ -97,6 +97,9 @@
 
 		</tr></table>
 		</tr>
+	<% end %>
+	<% if events.size == 0 %>
+			<tr><td style="padding: 10px; color: #717171"><em>You don't have any upcoming events</em></td></tr>
 	<% end %>
 
 </table>
